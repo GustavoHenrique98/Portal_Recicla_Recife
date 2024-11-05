@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="ReciclaRecife - Registre os eventos de reciclagem da sua empresa e divulgue-os">
+        <meta name="author" content="GustavoHenrique98">
+        <meta name="keywords" content="Reciclagem , Portal de eventos de reciclagem , eventos de reciclagem">
+        <!-- CSS -->
+        <link rel="stylesheet" href="/pages/login/login.css">
+        <!-- CSS RESPONSIVO -->
+        <link rel="stylesheet" href="/pages/login/loginResponsivo.css">
+        <!-- AXIOS -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.7/axios.min.js"></script>
+        <title>Login - Reciclarecife</title>
+    </head>
+    <body>
+        <form action="#"  id="formLogin">
+            <fieldset>
+                <legend> <img src="../../images/Logo Extendida.svg" alt="recicla recife logo"> </legend>
+                <label for="log_cnpj"></label>
+                <input type="text" id="log_cnpj" placeholder="Ex: 00.000.000/0001-01 " required>
+                
+                <label for="log_password"></label>
+                <input type="text" id="log_password" placeholder="Digite sua senha" required >
+
+                <button type="submit" id="log_btn">fazer login</button>
+
+                <div>
+                    <p>
+                        Não tem uma conta? <a href="/cadastro">Cadastre-se</a>
+                    </p>
+                </div>
+            </fieldset>
+        </form>
+
+
+        <script type="module" src="/scripts/Login.js"></script>
+    </body>
+</html>

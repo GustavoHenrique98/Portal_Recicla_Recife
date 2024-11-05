@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body,html{
+    height: 100%;
+    font-family: "Roboto" ,sans-serif;
+    
+}
+
+
+body{
+    background-image: url(../../images/BG_cadastro.svg.svg);
+    background-position: center top;
+    /* object-fit: cover; */
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+
+#formCadastro{
+    padding: 2rem;
+    outline: 2px solid rgba(15, 15, 15, 0.247);
+    border-radius: 7px;
+    box-shadow:2px 2px 2px rgb(17, 17, 17);
+    background-color: rgba(255, 255, 255, 0.807);
+    margin-right: 30px;
+}
+
+#formCadastro fieldset{
+    border: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+#formCadastro fieldset legend{
+    text-align:center;
+    font-size:2rem;
+    margin: 1rem 0rem;
+}
+.container_inputs{
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+}
+
+.input_itens{
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+}
+
+#btn_cadastro{
+    margin:auto;
+    display: block;
+    padding: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.8s;
+    text-transform: uppercase;
+    background-color: green;
+    color: white;
+    border-radius: 7px;
+    border:none;
+}
+#btn_cadastro:hover{
+    background-color: rgb(13, 175, 13);
+    color: black;
+    
+}
+.input_itens input{
+    padding: 10px 5px;
+}

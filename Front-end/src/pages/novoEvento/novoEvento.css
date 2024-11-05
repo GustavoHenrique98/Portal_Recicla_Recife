@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body,html{
+    height: 100%;
+    background-color: rgb(245, 243, 241);
+}
+
+body{
+    font-family:"Roboto", sans-serif;
+}
+#container_painel{
+    height: 100%;
+    display: flex;
+}
+/* Nav */
+#navbar_painel img{
+    border-bottom: 1px solid rgba(25, 24, 24, 0.146);
+    width: 100%;
+    padding-left: 7%;
+}
+#navbar_painel{
+    width: 25%;
+    height: 100%;
+    background-color: green ;
+    display: flex;
+    flex-direction: column;
+}
+#navbar_painel ul{
+    list-style: none;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 5px;
+    
+}
+#navbar_painel ul li{
+    width: 100%;
+    text-align: center;
+    display: inline-block;
+}
+#navbar_painel ul li a{
+    text-decoration: none;
+    color: rgb(228, 224, 224);
+    font-size: 1.3rem;
+    font-weight: 400;
+    display: block;
+    padding: 15px;
+    transition: 0.3s;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    
+}
+#navbar_painel ul li a:hover{
+    background-color: rgb(228, 224, 224);
+    color: black;
+    font-weight: bold;
+}
+#secao_cadastro_evento{
+    width: 80%;
+    height:100%;
+}
+#secao_cadastro_evento h1{
+    border-bottom: 1px solid rgba(128, 128, 128, 0.028);
+    text-align: center;
+    font-size: 3rem;
+    background-color: rgb(225, 219, 219);
+    color:rgba(0, 0, 0, 0.516);
+    align-self: initial;
+    flex-direction: row;
+    font-weight: normal;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+#container_eventos{
+    width: 90%;
+    height: 90%;
+    border: 1px solid rgba(0, 0, 0, 0.131);
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+    margin: 20px auto;
+    border-radius: 7px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#formEvento{
+    width: 70%;
+    height: 90%;
+    border-radius: 7px;
+    padding: 5px;
+}
+#formEvento fieldset{
+    border: none;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    height: 100%;
+    
+}
+#formEvento fieldset legend{
+    text-align: center;
+    font-size: 2rem;
+    padding: 10px 0px;
+    font-weight: bold;
+}
+
+.box_inputs{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 100%;
+}
+.box_inputs input{
+    border-radius:4px;
+    border: 1px solid rgba(0, 0, 0, 0.192);
+    padding: 5px;
+}
+
+#container_inputs{
+    display: flex;
+}
+#container_inputs .box_inputs input{
+    width: 95%;
+}
+
+#descricao_evento{
+    height: 40%;
+    width: 100%;
+}
+
+
+#btn_cadastro_evento{
+    margin-top: 20px;
+    width: fit-content;
+    display: block;
+    margin: auto;
+    padding: 20px 40px;
+    background-color: green;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius:7px;
+}

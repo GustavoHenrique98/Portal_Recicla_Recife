@@ -1,0 +1,15 @@
+@media screen and (max-width:600px){
+    body{
+       justify-content: center;
+       background-position: center right -120px;
+    }
+    #formCadastro{
+        width: 80%;
+        height: 90%;
+        margin: 0;
+        overflow-y: scroll;
+    }
+    .container_inputs{
+        flex-direction: column;
+    }
+}

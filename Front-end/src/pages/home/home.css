@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: "Roboto", sans-serif, Verdana, Geneva, Tahoma;
+}
+body,html{
+    height: 100%;
+}
+
+/*Topo do site*/
+
+#topo_home{
+    display: flex;
+    align-items: center;
+    position: fixed;
+    padding:10px 0px;
+    width: 100%;
+    z-index: 1;
+}
+#container__logoLinks{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0rem; 
+}
+
+#logo_reciclaRecife{
+    text-indent: -999px;
+    background-image: url(../../images/Logo.svg);
+    background-repeat: no-repeat;
+    width: 100px;
+    background-size: cover;
+    background-position: center;
+    margin-left: 10px;
+}
+#links_container{
+    display: flex;
+    flex-direction: row-reverse;
+    width: 100%;
+}
+#links_container ul{
+    display: flex;
+    list-style: none;
+    gap: 0.5rem;
+}
+
+#links_container ul li a{
+    text-decoration: none;
+    font-size: 1.3rem;
+    padding-right: 1rem;
+    color: black;
+}
+
+
+#banner_recicla_recife{
+    position: relative;
+}
+#cont_imgBanner img{
+    width: 100%;
+    height: auto;
+}
+
+#texto_banner{
+    position: absolute;
+    top: 32%;
+    left: 8%;
+    width: 40%;
+    height: fit-content;
+    background: rgba(255, 255, 255, 0.422);
+    border-radius: 10px;
+    padding: 30px;
+    filter: blur(0.5px);
+}
+#texto_banner header{
+    display: flex;
+    align-items: center;
+    padding: 10px 0px;
+}
+
+#texto_banner header img{
+    width: 40%;
+    height: 100%;
+}
+
+#texto_banner header h2{
+    font-size: 1.5rem;
+    font-weight: 500;
+
+}
+
+#texto_banner p{
+    font-size: 1.3rem;
+}

@@ -30,6 +30,19 @@ class EventoService{
         }
     }
 
+    async listOrgEvents(organizacao_id){
+        if(!organizacao_id){
+            console.log("Erro : id da organização não fornecido!");
+        }else{
+            try{
+                const results = this.EventoRepository.listEventsFromOrgs(organizacao_id);
+                return results;
+            }catch(error){
+                console.log(`Erro : ${error.message}`);
+            }
+        }
+    }   
+
     async readEvento(id_evento){
         if(!id_evento){
             console.log("Erro : Id do evento não fornecido! ");

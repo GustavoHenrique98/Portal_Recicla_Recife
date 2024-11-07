@@ -19,32 +19,36 @@ body{
     display: flex;
 }
 /* Nav */
-#navbar_painel img{
-    border-bottom: 1px solid rgba(25, 24, 24, 0.146);
-    width: 100%;
-    padding-left: 7%;
-}
 #navbar_painel{
     width: 25%;
     height: 100%;
     background-color: green ;
     display: flex;
+    justify-content: space-between;
     flex-direction: column;
 }
+
+#navbar_painel img{
+    border-bottom: 1px solid rgba(25, 24, 24, 0.146);
+    width: 100%;
+    padding-left: 7%;
+}
+
 #navbar_painel ul{
-    list-style: none;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 5px;
-    
+   align-self: center;
+   width: 100%;
+   height: 100%;
+   display: flex;
+   flex-direction: column;
+   justify-content: space-around;
 }
+
 #navbar_painel ul li{
     width: 100%;
     text-align: center;
     display: inline-block;
 }
+
 #navbar_painel ul li a{
     text-decoration: none;
     color: rgb(228, 224, 224);
@@ -54,17 +58,18 @@ body{
     padding: 15px;
     transition: 0.3s;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    
 }
+
 #navbar_painel ul li a:hover{
-    background-color: rgb(228, 224, 224);
-    color: black;
+    background-color: rgb(9, 99, 3);
     font-weight: bold;
 }
+
 #secao_meus_eventos{
-    width: 85%;
+    width: 95%;
     height:100%;
 }
+
 #secao_meus_eventos h1{
     border-bottom: 1px solid rgba(128, 128, 128, 0.028);
     background-color: rgb(237, 232, 232);
@@ -78,13 +83,57 @@ body{
 
 #container_eventos{
     width: 90%;
+    height: 80%;
     border: 1px solid rgba(0, 0, 0, 0.131);
     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
-    height: 80%;
     margin: 20px auto;
     border-radius: 7px;
+    overflow-y: scroll;
+
+}
+
+#container_eventos h2{
+    text-align: center;
+    margin: 5px 0px;
+}
+
+#container_box_eventos{
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.box_evento{
+    width: 42%;
+    margin: 20px;
+    box-shadow: 2px 2px 2px rgba(0, 0,0, 0.5);
+    border-left: 2px solid rgba(0, 0, 0, 0.122);
+    border-top-left-radius: 7px;
+    border-bottom-left-radius: 7px;
+    cursor: pointer;
+}
+.eventosTable{
+    border-collapse: collapse;
+    width: 100%;
+    background-color: rgb(237, 231, 231);
+}
+.eventosTable thead tr th{
+    text-align: left;
+    background: #14AE5C;
+    color: white;
+    border-radius: 7px 7px 0px 0px;
+    padding: 10px;
+}
+.eventosTable td{
+    border-bottom: 1px solid rgb(206, 200, 200);
+    padding: 10px;
+    font-size: 1rem;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-width: 200px;
+    
 }
 

@@ -26,6 +26,26 @@ class EventoRepository{
             console.log(`Error : ${error.message}`);
         }
     }
+    async listEventsFromOrgs(organizacao_id) {
+        try {
+            const [results] = await conection.query(
+                `SELECT ID, nome_evento, localizacao_evento, descricao_evento, 
+                        DATE_FORMAT(data_evento, '%d/%m/%Y') AS data_evento, organizacao_id 
+                 FROM Eventos 
+                 WHERE organizacao_id = ?`, 
+                [organizacao_id]
+            );
+    
+            if (results.length === 0) {
+                return null;
+            }
+    
+            return results;
+    
+        } catch (error) {
+            console.log(`Error: ${error.message}`);
+        }
+    }
 
     async read(id_evento){
         try{

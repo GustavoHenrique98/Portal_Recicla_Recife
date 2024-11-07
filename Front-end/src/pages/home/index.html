@@ -6,8 +6,11 @@
         <meta name="description" content="ReciclaRecife - Registre os eventos de reciclagem da sua empresa e divulgue-os!">
         <meta name="author" content="GustavoHenrique98, Luisacs923">
         <meta name="keywords" content="Reciclagem , Portal de eventos de reciclagem , eventos de reciclagem">
+        <!-- CSS Desktop -->
         <link rel="stylesheet" href="/pages/home/home.css">
+        <!-- CSS Responsivo -->
         <link rel="stylesheet" href="/pages/home/homeResponsivo.css">
+        <!-- AXIOS -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.7/axios.min.js"></script>
         <title>Home | Reciclarecife</title>
     </head>
@@ -18,13 +21,14 @@
                 <nav id="links_container">
                     <ul id="links_centro">
                         <li><a href="/">Home</a></li>
-                        <li><a href="#">Sobre</a></li>
+                        <li><a href="#secao_sobre">Sobre</a></li>
                         <li><a href="#">Eventos</a></li>
                         <li><a href="/pages/cadastro/index.html">Cadastro</a></li>
                         <li><a href=/login>Login</a></li>
                     </ul>
                 </nav>
         </header>
+        
         <main>
             <section id="banner_recicla_recife">
                 
@@ -32,7 +36,7 @@
                     <img src="../../images/Banner.png" alt="Garota segurando caixa com símbolo de reciclagem">
                 </div>
                 
-                <article id="texto_banner">
+                <!-- <article id="texto_banner">
                     <header>
                         <img src="../../images/Logo Extendida.svg" alt="Recicla recife logo">
                         <h2>
@@ -44,12 +48,40 @@
                         Trabalhamos com organizações parceiras para gerenciar eventos educativos e implementar estratégias eficazes de gestão de resíduos. 
                         Nosso objetivo é reduzir o desperdício e fomentar práticas ecológicas em toda a cidade.
                     </p>
+                </article> -->
+
+            </section>
+        
+            <section id="acoes_reciclagem">
+                <h2>Confira algumas das ações de Reciclagem do Recife:</h2>
+
+                <div id="container_acoes_reciclagem">
+                    <img src="../../images/image 5.png" alt="">
+                    <img src="../../images/image 6.png" alt="">
+                    <img src="../../images/image 7.png" alt="">
+                </div>
+            </section>
+            
+            <section id="secao_sobre">
+                <article id="container_texto_sobre">
+                    <h2>Sobre nós:</h2>
+
+                    <p>
+                        Recicla Recife é uma iniciativa dedicada à promoção da sustentabilidade urbana, atuando diretamente nas comunidades locais por meio de programas de reciclagem. Nosso trabalho é realizado em parceria com diversas organizações que compartilham da mesma missão, permitindo-nos gerenciar eventos educativos e implementar estratégias eficazes de gestão de resíduos.
+                        Acreditamos que a conscientização e a educação são fundamentais para transformar hábitos e fomentar práticas ecológicas. Nosso objetivo é reduzir o desperdício e contribuir para um futuro mais sustentável em toda a cidade.
+                        Junte-se a nós nessa jornada em prol de um Recife mais verde e consciente!
+                    </p>
                 </article>
+                
+                <img src="../../images/sobre.jpg" alt="Homem feliz trabalhando com reciclagem">
 
             </section>
         </main>
 
 
+        <footer id="rodape_home">
+            <p> &copy;Recicla Recife </p>
+        </footer>   
 
        <script type="module" src="/scripts/Home.js"></script>
     </body>

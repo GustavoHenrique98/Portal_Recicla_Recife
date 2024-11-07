@@ -21,6 +21,8 @@ body,html{
     padding:10px 0px;
     width: 100%;
     z-index: 1;
+    background-color: rgba(255, 248, 248, 0.276);
+    
 }
 #container__logoLinks{
     width: 100%;
@@ -43,6 +45,7 @@ body,html{
     display: flex;
     flex-direction: row-reverse;
     width: 100%;
+    font-weight: 500;
 }
 #links_container ul{
     display: flex;
@@ -60,16 +63,17 @@ body,html{
 
 #banner_recicla_recife{
     position: relative;
+    height: 100%;
 }
 #cont_imgBanner img{
     width: 100%;
-    height: auto;
+    height: 100%;
 }
 
 #texto_banner{
     position: absolute;
-    top: 32%;
-    left: 8%;
+    top: 25%;
+    left: 6%;
     width: 40%;
     height: fit-content;
     background: rgba(255, 255, 255, 0.422);
@@ -96,4 +100,88 @@ body,html{
 
 #texto_banner p{
     font-size: 1.3rem;
+}
+
+
+
+
+/* Seção de ações de reciclagem */
+#acoes_reciclagem{
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+    margin: 50px 0px;
+
+}
+
+#acoes_reciclagem h2{
+    font-size: 1.5rem;
+}
+
+#container_acoes_reciclagem{
+    display: flex;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    gap: 30px;
+}
+#container_acoes_reciclagem img{
+    border-radius: 7px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+/*Sobre*/
+
+#secao_sobre{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    height: 100%;
+    padding:30px 0px;
+    flex-wrap: wrap;
+}
+
+
+#container_texto_sobre{
+    width: 50%;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    border: 1px solid rgba(235, 234, 234, 0.707);
+    border-radius: 7px;
+    box-shadow: 2px 2px 2px rgba(0,0,0,0.5);
+}
+#container_texto_sobre h2{
+    font-size: 1.7rem;
+}
+
+#container_texto_sobre p{
+    font-size: 1.4rem;
+    padding-left: 5px;
+    line-height: 30px;
+}
+
+
+#secao_sobre img{
+    width: 40%;
+    border-radius: 7px;
+    box-shadow: 2px 2px 2px rgba(0,0,0,0.5);
+}
+
+
+/* Rodapé Home */
+
+#rodape_home{
+    height: 20%;
+    background-color: #0c7a3f;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 1.5rem;
 }

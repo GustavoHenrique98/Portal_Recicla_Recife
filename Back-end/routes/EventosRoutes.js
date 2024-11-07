@@ -25,6 +25,20 @@ Router.get('/list', async(req,res)=>{
     }
 });
 
+Router.get('/events-from-org/:organizacao_id', async(req,res)=>{
+    const organizacao_id = req.params.organizacao_id;
+    try{
+        const results = await evService.listOrgEvents(organizacao_id);
+        if(results === null){
+            res.status(404).send([]);
+        }else{
+            res.send(results);
+        }
+    }catch(error){
+        res.status(500).send(`Erro : ${error.message}`);
+    }
+});
+
 Router.get('/list/:id_evento', async(req,res)=>{
     const id_evento = req.params.id_evento;
     try{

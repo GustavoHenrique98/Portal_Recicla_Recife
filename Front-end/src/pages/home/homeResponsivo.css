@@ -1,1 +1,59 @@
-@media screen and (max-width:)
+@media screen and (max-width:1029px){
+    #topo_home{
+        justify-content: space-between;
+    }
+    #btn_nav{
+        display: block;
+        margin-right: 20px;
+    }
+    #links_container{
+        position: fixed;
+        bottom: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        border: 1px solid black;
+        background-color: green;
+
+    }
+    #links_container ul{
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        border: 1px solid red;
+        width: 100%;
+
+    }
+
+    
+    
+    
+    
+    
+    
+    
+    #container_acoes_reciclagem{
+        flex-direction: column;
+        align-items: center;
+        gap: 50px;
+    }
+    #acoes_reciclagem h2{
+        font-size:1.8rem;
+    }
+    #container_acoes_reciclagem img{
+        width: 50%;
+    }
+    
+    #secao_sobre{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+    }
+    #container_texto_sobre{
+        width: 80%;
+    }
+    #secao_sobre img{
+        width: 80%;
+    }
+}

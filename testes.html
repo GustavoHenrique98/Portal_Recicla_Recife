@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=d3evice-width, initial-scale=1.0">
+  <!-- Fonts Awesome -->
+  <link rel="stylesheet"  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <title>Modal com Animação</title>
+
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body,html{
+      height: 100%;
+      
+    }
+    body{
+      position: relative;
+    }
+      #modal{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        width:60%;
+        border: 1px solid black;
+        border-radius: 7px;
+        display: flex;
+        flex-direction: column;
+      }
+      #modal header{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid black;
+        padding:10px; 
+      
+
+      }
+      .btn_acoes_modal{
+        padding: 5px 10px;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: 0.8s;
+        border:none;
+        border-radius: 5px;
+      }
+
+      .btn_acoes_modal:hover{
+        background:green;
+        color: white;
+      }
+
+      /* Formulário */
+      #modal_eventos{
+        height: 100%;
+      }
+      #modal_eventos fieldset{
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        border: none;
+        padding: 10px;
+
+      }
+
+      .box_modal_inputs{
+        display: flex;
+        flex-direction: column;
+        margin: 10px 10px;
+        gap: 10px;
+      }
+      .box_modal_inputs label{
+        font-size: 1rem;
+      }
+      .box_modal_inputs input{
+        padding: 3px 0px;
+      }
+
+      #container_box_modal_inputs{
+        display: flex;
+        
+      }
+      #container_box_modal_inputs .box_modal_inputs{
+        width: 100%;
+      }
+      
+      #container_desc_evento{
+        display: flex;
+        flex-direction: column;
+        margin: 10px 10px;
+        gap: 10px;
+        
+      }
+
+      #container_desc_evento textarea{
+        width: 100%;
+        height: 100px;
+        border: 1px solid black;
+      }
+
+      #btn_updateEvento{
+        display: block;
+        width: fit-content;
+        margin: auto;
+        padding: 10px 20px;
+        font-size: 1.2rem;
+        cursor: pointer;
+        background-color: green;
+        border-radius: 7px;
+        color: white;
+        border: none;
+        display: none;
+      }
+
+      
+      
+  </style>
+</head>
+<body>
+  <button id="openModalBtn">Abrir Modal</button>
+
+  <dialog id="modal" >
+    <header >
+        <h1>Detalhes do evento: </h1>
+        <div id="modal_actions">
+          <button class="btn_acoes_modal"><i class="fa-regular fa-pen-to-square"></i></button>
+          <button class="btn_acoes_modal"><i class="fa-solid fa-trash-can"></i></button>
+          <button class="btn_acoes_modal"><i class="fa-solid fa-xmark"></i></button>
+     </div>
+    </header> 
+
+    <form action="#" method="#" id="modal_eventos">
+        <fieldset>
+            <div class="box_modal_inputs">
+              <label for="modal_nome_evento">Nome do Evento:</label>
+              <input type="text" id="modal_nome_evento" disabled>
+            </div>
+
+            <div id="container_box_modal_inputs">
+
+                <div class="box_modal_inputs">
+                  <label for="modal_localizacao_evento">Localização do Evento:</label>
+                  <input type="text" id="modal_localizacao_evento" disabled>
+                </div>
+
+                <div class="box_modal_inputs">
+                  <label for="modal_data_evento">Data do Evento:</label>
+                  <input type="date" id="modal_data_evento" disabled>
+                </div>
+
+            </div>
+
+            <div id="container_desc_evento">
+                <label for="modal_descricao_evento" id="label_desc_evento">Descrição do evento:</label>
+                <textarea name="modal_descricao_evento" id="modal_descricao_evento" disabled></textarea>
+            </div>
+
+            <button type="submit" id="btn_updateEvento">Atualizar</button>
+
+          
+        </fieldset>
+    </form>
+    
+  </dialog>
+
+  <script>
+      const openModalBtn = document.getElementById('openModalBtn');
+      const modal = document.getElementById('modal')
+      openModalBtn.addEventListener('click', ()=>{
+        modal.showModal();
+      })
+  </script>
+</body>
+</html>

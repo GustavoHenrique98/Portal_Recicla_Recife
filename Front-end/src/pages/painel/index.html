@@ -6,28 +6,39 @@
         <meta name="description" content="ReciclaRecife - Registre os eventos de reciclagem da sua empresa e divulgue-os">
         <meta name="author" content="GustavoHenrique98, Luisacs923">
         <meta name="keywords" content="Reciclagem , Portal de eventos de reciclagem , eventos de reciclagem">
+        <!-- Painel css -->
         <link rel="stylesheet" href="/pages/painel/painel.css">
+        <!-- Painel Responsivo -->
         <link rel="stylesheet" href="/pages/painel/painelResponsivo.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+        <!-- Fonts Awesome -->
+        <link rel="stylesheet"  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+        <!-- AXIOS -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.7/axios.min.js"></script>
         <title>Meus Eventos - Reciclarecife</title>
     </head>
     <body>
+
+        <header id="topo_painel">
+            <a href="/"><img src="../../images/Logo.svg" alt="logo Recicla-Recife"></a>
+            <button id="btn_abrirNav"><i class="fa-solid fa-bars"></i></button>
+        </header>
+
         <div id="container_painel">
             <nav id="navbar_painel">
                 <a href="/"><img src="../../images/Logo Extendida.svg" alt="logo Recicla-Recife"></a>
 
                <ul>
                    <li>  <a href="/painel">Meus Eventos</a> </li>
-                   <li>  <a href="/painel/novo-evento">Novo Evento</a> </li>
+                   <li>  <a href="/painel/novo-evento">Publicar Evento</a> </li>
                     <li> <a href="#">Minhas Estratégias</a> </li>
                     <li> <a href="#">Nova Estratégia</a> </li>
                     <li> <a href="#">Associar Estratégias</a> </li>
                     <li> <a href="#">Configurações</a> </li>
                     <li> <a href="/" id="btn_logout">Sair</a> </li>
-
+                    <li> <a href="#" id="btn_fecharNav">X</a> </li>
                </ul>
             </nav>
+
             <section id="secao_meus_eventos">
                 <h1>Meus Eventos</h1>
                 <div id="container_eventos">
@@ -45,6 +56,7 @@
 
         
         <script type="module" src="/scripts/ListarEventos.js"></script>
+        <script type="module" src="/scripts/navbar_painel.js"></script>
         <script type="module" src="/scripts/Logout.js"></script>
         
     </body>

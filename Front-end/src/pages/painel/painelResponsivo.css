@@ -1,0 +1,74 @@
+@media screen and (max-width:757px){
+    
+    #topo_painel{
+        display: flex;
+    }
+
+    #btn_fecharNav{
+        display: block !important;
+        font-size: 20px;
+    }
+
+    #navbar_painel{
+        position: absolute;
+        width:100%;
+        top: 0;
+        left: -100%;
+        height:110vh;
+    }
+
+    #navbar_painel img{
+        padding-left: 12%;
+    }
+
+    #container_painel{
+        justify-content: center;
+    }
+
+    #container_eventos{
+        width:95%;
+        height:70%;
+    }
+}
+
+
+@media screen and (max-width:600px){
+    #secao_meus_eventos{
+        width: 100%;
+        padding: 0;
+        margin: 0;
+       }
+    
+    #container_eventos{
+        width: 95%;
+        height: 98%;
+    }
+
+    .box_evento{
+    width: 100%;
+   }
+
+   #modal{
+    width: 100%;
+    height: 80%;
+    overflow: visible;
+    padding: 0;
+   }
+   .box_modal_inputs{
+     width: 100%;
+     margin: 10px 0px;
+   }
+
+   #container_box_modal_inputs{
+    display: flex;
+    flex-direction: column;
+   }
+
+   #container_desc_evento{
+    margin: 10px 0px;
+   }
+   #container_desc_evento textarea{
+    height: 200px;
+   }
+
+}

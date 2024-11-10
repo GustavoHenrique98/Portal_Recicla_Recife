@@ -1,5 +1,5 @@
 @media screen and (max-width:757px){
-    
+    /* Painel responsivo */
     #topo_painel{
         display: flex;
     }
@@ -10,44 +10,45 @@
     }
 
     #navbar_painel{
+        width: 100%;
         position: absolute;
-        width:100%;
         top: 0;
         left: -100%;
-        height:110vh;
+        height: 100% ;
+        padding: 0;
+        margin: 0;
+        overflow-y:auto;
+       
     }
-
     #navbar_painel img{
-        padding-left: 12%;
+        padding-left: 11%;
     }
-
+    
     #container_painel{
+        width: 100%;
+        height:90%;
         justify-content: center;
     }
 
-    #container_eventos{
-        width:95%;
-        height:70%;
-    }
-}
-
-
-@media screen and (max-width:600px){
     #secao_meus_eventos{
-        width: 100%;
-        padding: 0;
-        margin: 0;
-       }
-    
+        height: 100%;
+    }
+
     #container_eventos{
         width: 95%;
-        height: 98%;
+        height: 90%;
     }
 
+}
+@media screen and (max-width:600px){
+   
+    /*Eventos  */
     .box_evento{
-    width: 100%;
-   }
+        width: 100%;
+    }
 
+
+    /* Modal */
    #modal{
     width: 100%;
     height: 80%;

@@ -14,10 +14,34 @@ body,html{
 body{
     font-family:"Roboto", sans-serif;
 }
+/* Painel do topo */
+#topo_painel{
+    display: flex;
+    background-color: rgb(178, 189, 178);
+    justify-content: space-between;
+    align-items: center;
+    display: none;
+}
+#topo_painel a{
+    padding-left: 20px;
+}
+
+#topo_painel button{
+    font-size: 1.5rem;
+    border: none;
+    background: none;
+    color: black;
+    margin-right: 20px;
+    cursor: pointer;
+}
+
 #container_painel{
     height: 100%;
     display: flex;
 }
+
+
+
 /* Nav */
 #navbar_painel{
     width: 25%;
@@ -26,6 +50,7 @@ body{
     display: flex;
     justify-content: space-between;
     flex-direction: column;
+    transition: 0.8s;
 }
 
 #navbar_painel img{
@@ -63,6 +88,10 @@ body{
 #navbar_painel ul li a:hover{
     background-color: rgb(9, 99, 3);
     font-weight: bold;
+}
+
+#btn_fecharNav{
+    display: none!important;
 }
 #secao_cadastro_evento{
     width: 80%;
@@ -150,4 +179,12 @@ body{
     font-weight: bold;
     border: none;
     border-radius:7px;
+    cursor: pointer;
+    transition: 0.8s;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+}
+
+#btn_cadastro_evento:hover{
+    color: black;
+    text-shadow: 2px 2px 2px rgba(242, 237, 237, 0.5);
 }

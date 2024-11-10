@@ -23,12 +23,18 @@ Router.get('/cadastro',(req,res)=>{
     res.sendFile(path.join(__dirname, '../../Front-end/src/pages/cadastro/index.html'));
 });
 
+//Painel principal que lista os eventos.
 Router.get('/painel',(req,res)=>{
     res.sendFile(path.join(__dirname, '../../Front-end/src/pages/painel/index.html'));
 });
 
+//Página de publicação de eventos com formulário.
 Router.get('/painel/novo-evento',(req,res)=>{
     res.sendFile(path.join(__dirname, '../../Front-end/src/pages/novoEvento/index.html'));
+});
+
+Router.get('/painel/config-usuario',(req,res)=>{
+    res.sendFile(path.join(__dirname, '../../Front-end/src/pages/config_usuario/index.html'));
 });
 
 

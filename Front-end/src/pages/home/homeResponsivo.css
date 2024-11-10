@@ -1,7 +1,63 @@
-@media screen and (max-width:1029px){
+@media screen and (max-width:1000px){
+    #secao_sobre{
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+        
+    }
+
+    #secao_sobre img{
+        width: 85%;
+    }
+
+    #container_texto_sobre{
+        width: 85%;
+    }
+
+    #container_texto_sobre{
+        padding: 20px 20px;
+    }
+    
+
+}
+
+
+@media screen and (max-width:611px){
     #topo_home{
         justify-content: space-between;
     }
+   
+    
+    #links_container{
+        position: fixed;
+        bottom: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background-color: green;
+        transition: 0.8s;
+    }
+    
+    #links_container ul{
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        width: 100%;
+    
+    }
+    #links_container ul li{
+        width: 100%;
+        display: inline-block;
+    }
+    
+    #links_container ul li a{
+        font-size:2rem;
+        color: white;
+        text-shadow: 2px 2px 2px rgba(0,0,0,0.5);
+        display: block;
+        text-align: center;
+    } 
+        
     #btn_nav{
         display: block;
         margin-right: 20px;
@@ -11,46 +67,39 @@
         cursor: pointer;
         font-size: 1.5rem;
     }
-    #links_container{
-        position: fixed;
-        bottom: 0;
-        left: -100%;
-        width: 100%;
-        height: 100%;
-        border: 1px solid black;
-        background-color: green;
 
-    }
-    #links_container ul{
-        flex-direction: column;
-        justify-content: space-around;
-        align-items: center;
-        width: 100%;
 
+    #acoes_reciclagem h2{
+        font-size: 1.6rem;
+        text-align: center;
     }
 
     #container_acoes_reciclagem{
         flex-direction: column;
         align-items: center;
-        gap: 50px;
     }
-    #acoes_reciclagem h2{
-        font-size:1.3rem;
-    }
+
     #container_acoes_reciclagem img{
         width: 80%;
     }
-    
-    #secao_sobre{
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 20px;
+
+
+    #container_texto_sobre p{
+        font-size: 1rem;
     }
-    #container_texto_sobre{
-        width: 80%;
-    }
+
     #secao_sobre img{
-        width: 80%;
+        
     }
+
 }
+
+
+
+
+
+/* 
+
+
+
+*/

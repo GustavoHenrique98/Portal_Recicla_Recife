@@ -24,8 +24,9 @@ evento.form.addEventListener('submit', async (e)=>{
             descricao_evento,
             organizacao_id
         })
-        alert(response.data.message)
+        alert(response.data.message);
+        evento.form.reset();
     }catch(error){
-        console.error(error.response)
+        console.error(error.response);
     }
 })

@@ -1,7 +1,7 @@
 import { getDOM, getDomAll } from "./getDOM.js";
 const login = {
     form:getDOM('#formLogin'),
-    cnpj:getDOM('#log_cnpj'),
+    cnpj:getDOM('#log_email'),
     password:getDOM('#log_password'),
     log_btn:getDOM("#log_btn")
 
@@ -9,10 +9,10 @@ const login = {
 
 login.form.addEventListener('submit', async (e)=>{
     e.preventDefault();
-    const cnpj = login.cnpj.value;
+    const email = login.cnpj.value;
     const password = login.password.value;
     try{
-        const response = await axios.post('/api/organizacoes/authOrg',{cnpj,password});
+        const response = await axios.post('/api/organizacoes/authOrg',{email,password});
         alert(response.data.message);
         
         const organizacao = response.data.organizacao;
@@ -22,9 +22,7 @@ login.form.addEventListener('submit', async (e)=>{
         window.location.href ="/painel";
         
     }catch(error){
-        if(error.status === 404 || error.status === 422){
-            alert(error.response.data.error);
-        }
+        alert(error.response.data.error);
     }
 
 })

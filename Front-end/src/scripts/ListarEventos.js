@@ -53,7 +53,7 @@ window.addEventListener('load', async () => {
     }
 });
 
-// Função para criar o modal e adicionar ao body (mantida a mesma)
+// Função para criar o modal e adicionar ao body.
 function criarModal(evento) {
     function formatarData(data) {
         const [dia, mes, ano] = data.split('/');

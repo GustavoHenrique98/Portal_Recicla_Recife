@@ -32,28 +32,31 @@ Router.post('/insert',async(req,res)=>{
 
 Router.post('/authOrg', async (req, res) => {
     const post_data = req.body;
-    const { cnpj, password } = post_data;
-    
-
-    if (!cnpj || !password) {
-        return res.status(422).send({ error: 'Erro! Dados incompletos, preencha todos os campos!' });
-    }
+    const { email, password } = post_data;
 
     try {
         const organizacoes = await orgService.listOrganizacoes();
-        
+
+        //Coloquei esta verificação "Redundante" para economizar tempo , 
+        //esta verificação serve para caso não tenha nenhum usuário cadastrado no banco de dados,
+        //Pois por padrão o método listOrganizacoes retorna null se não tiver nenhum índice no array...
+
+        if(organizacoes === null){
+            res.status(404).send({error:"Organização não encontrada na base de dados!"});
+            return;
+        }
+
         for (let i = 0; i < organizacoes.length; i++) {
-            if (cnpj === organizacoes[i].cnpj && password === organizacoes[i].password) {
+            if (email === organizacoes[i].email && password === organizacoes[i].password) {
                 res.status(200).send({ message: 'Organização autenticada com sucesso!' , organizacao:organizacoes[i] });
                 return;
             }
         }
 
         res.status(404).send({ error: 'Organização não encontrada na base de dados!' });
-        return;
 
     } catch (error) {
-        return res.status(500).send({ error: `Erro: ${error.message}` });
+        res.status(500).send({ error: `Erro: ${error.message}` });
     }
 });
 

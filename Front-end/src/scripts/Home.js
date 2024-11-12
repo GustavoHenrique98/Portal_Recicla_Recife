@@ -1,13 +1,6 @@
 import {getDOM} from "./getDOM.js";
 
-// const header_topo = {
-//     header:,
-//     
-// }
-
-
-
-
+//Ao carregar a página verifica se existem dados de usuário no local storage.
 window.addEventListener('load', () => {
     const organizacao = localStorage.getItem('organizacao');
     
@@ -43,7 +36,9 @@ window.addEventListener('load', () => {
        btn_closeNav.addEventListener('click',()=>{
          navBar.style.left="-100%";
        });
+
     }else{
+
        const navBar = getDOM('#links_container')
        const btn_openNav = getDOM('#btn_nav')
        const btn_closeNav = getDOM('#btn_fecharNav')

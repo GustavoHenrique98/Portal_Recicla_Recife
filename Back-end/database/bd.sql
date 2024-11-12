@@ -22,8 +22,8 @@ create table Eventos(
     localizacao_evento TEXT,
     descricao_evento TEXT,
     data_evento DATE , 
-    organizacao_id INT,
-    FOREIGN KEY (organizacao_id) REFERENCES Organizacoes(ID)
+    organizacao_id INT ,
+    FOREIGN KEY (organizacao_id) REFERENCES Organizacoes(ID) ON DELETE CASCADE
 );
 
 create table Estrategias(
@@ -40,8 +40,8 @@ create table Est_evt(
 	id_evento INT, 
     id_Estrategia INT,
     PRIMARY KEY (id_evento,id_estrategia),
-    FOREIGN KEY(id_evento) REFERENCES Eventos(ID),
-    FOREIGN KEY (id_estrategia) REFERENCES Estrategias(ID)
+    FOREIGN KEY(id_evento) REFERENCES Eventos(ID) ON DELETE CASCADE,
+    FOREIGN KEY (id_estrategia) REFERENCES Estrategias(ID) ON DELETE CASCADE
 );
 
 -- INSERTS

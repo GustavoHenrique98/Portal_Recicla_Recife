@@ -36,6 +36,7 @@ window.addEventListener('load', async () => {
                             <tr>
                                 <td class="info_evento">Data: ${evento.data_evento}</td>
                             </tr>
+                            
                         </tbody>
                     </table>
                 `;
@@ -100,7 +101,7 @@ function criarModal(evento) {
             </fieldset>
         </form>
     `;
-
+    
     document.body.appendChild(modal);
     modal.showModal();
 
@@ -147,7 +148,7 @@ function criarModal(evento) {
                 window.location.href="/painel";
             }
         }catch(error){
-            alert('DEU RUIM');
+            console.log(error.response.data);
         }
     })
     

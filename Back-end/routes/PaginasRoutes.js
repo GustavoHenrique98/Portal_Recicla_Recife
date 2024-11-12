@@ -33,12 +33,21 @@ Router.get('/painel/novo-evento',(req,res)=>{
     res.sendFile(path.join(__dirname, '../../Front-end/src/pages/novoEvento/index.html'));
 });
 
+//Página de configuração de usuário
 Router.get('/painel/config-usuario',(req,res)=>{
     res.sendFile(path.join(__dirname, '../../Front-end/src/pages/config_usuario/index.html'));
 });
 
 
+//Página de criação de estratégias
+Router.get('/painel/nova-estrategia',(req,res)=>{
+    res.sendFile(path.join(__dirname, '../../Front-end/src/pages/novaEstrategia/index.html'));
+});
 
+//Página de visualização de estratégias.
+Router.get('/painel/minhas-estrategias',(req,res)=>{
+    res.sendFile(path.join(__dirname, '../../Front-end/src/pages/minhasEstrategias/index.html'));
+});
 
 
 export default Router;

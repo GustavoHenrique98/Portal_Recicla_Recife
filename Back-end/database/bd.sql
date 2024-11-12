@@ -2,7 +2,6 @@ create database recicla_recife;
 -- drop database recicla_recife;
 use recicla_recife;
 
-
 create table Organizacoes(
 	ID INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
     cnpj VARCHAR(18),
@@ -31,7 +30,8 @@ create table Estrategias(
 	titulo_estrategia VARCHAR(50),
     tipo_estrategia VARCHAR(50),
     descricao_estrategia TEXT,
-    efetividade_estrategia VARCHAR(20)
+    organizacao_id int ,
+    FOREIGN KEY (organizacao_id) REFERENCES Organizacoes(ID) ON DELETE CASCADE
 );
 
 
@@ -46,11 +46,12 @@ create table Est_evt(
 
 -- INSERTS
 
-
-
 -- SELECTS
 
 SELECT * FROM Organizacoes;
 SELECT * FROM Eventos;
 SELECT * FROM Estrategias;
+
+
+Delete FROM estrategias WHERE ID = 1;
 SELECT * FROM Est_evt;

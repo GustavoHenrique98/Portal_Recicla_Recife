@@ -17,7 +17,7 @@ body{
 /* Painel do topo */
 #topo_painel{
     display: flex;
-    background-color: rgb(178, 189, 178);
+    background-color: green;
     justify-content: space-between;
     align-items: center;
     display: none;
@@ -26,11 +26,11 @@ body{
     padding-left: 20px;
 }
 
-#topo_painel button{
+#btn_abrirNav{
     font-size: 1.5rem;
     border: none;
     background: none;
-    color: black;
+    color: white;
     margin-right: 20px;
     cursor: pointer;
 }

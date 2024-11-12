@@ -5,8 +5,8 @@ import conection from '../database/db.js';
 class EstrategiaRepository{
     async create(estrategia){
         try{
-            const [results] = await conection.query('INSERT INTO Estrategias (titulo_estrategia, tipo_estrategia, descricao_estrategia, efetividade_estrategia) VALUES(?,?,?,?)',
-            [estrategia.titulo_estrategia, estrategia.tipo_estrategia, estrategia.descricao_estrategia, estrategia.efetividade_estrategia]);
+            const [results] = await conection.query('INSERT INTO Estrategias (titulo_estrategia, tipo_estrategia, descricao_estrategia, organizacao_id) VALUES(?,?,?,?)',
+            [estrategia.titulo_estrategia, estrategia.tipo_estrategia, estrategia.descricao_estrategia, estrategia.organizacao_id]);
 
         }catch(error){
             console.log(`Error : ${error.message}`);
@@ -28,6 +28,22 @@ class EstrategiaRepository{
         }
     }
 
+    async listEstrategiesFromOrgs(organizacao_id){
+        try{
+            const [results] = await conection.query('SELECT * FROM Estrategias WHERE organizacao_id = ?',[organizacao_id]);
+        
+            if(results.length === 0){
+                return null;
+            }
+
+            return results;
+
+        }catch(error){
+            console.log(`Error : ${error.message}`);
+        }
+    }
+
+    
     async read(id_estrategia){
         try{
             const [results] = await conection.query('SELECT * FROM Estrategias WHERE ID = ? ',[id_estrategia]);
@@ -36,7 +52,7 @@ class EstrategiaRepository{
             if(!estrategia){
                 return null;
             }else{
-                return new Estrategias(estrategia.titulo_estrategia, estrategia.tipo_estrategia, estrategia.descricao_estrategia, estrategia.efetividade_estrategia, estrategia.ID);
+                return new Estrategias(estrategia.titulo_estrategia, estrategia.tipo_estrategia, estrategia.descricao_estrategia, estrategia.organizacao_id, estrategia.ID);
             }
         }catch(error){
             console.log(`Error : ${error.message}`);
@@ -45,8 +61,8 @@ class EstrategiaRepository{
 
     async update(id_estrategia, estrategia){
         try{
-            const [results] = await conection.query('UPDATE Estrategias SET titulo_estrategia =?, tipo_estrategia =?, descricao_estrategia =?, efetividade_estrategia =? WHERE ID = ?',
-            [estrategia.titulo_estrategia, estrategia.tipo_estrategia, estrategia.descricao_estrategia, estrategia.efetividade_estrategia, id_estrategia]);
+            const [results] = await conection.query('UPDATE Estrategias SET titulo_estrategia =?, tipo_estrategia =?, descricao_estrategia =?, organizacao_id =? WHERE ID = ?',
+            [estrategia.titulo_estrategia, estrategia.tipo_estrategia, estrategia.descricao_estrategia, estrategia.organizacao_id, id_estrategia]);
 
             if(results.affectedRows === 0){
                 return null;

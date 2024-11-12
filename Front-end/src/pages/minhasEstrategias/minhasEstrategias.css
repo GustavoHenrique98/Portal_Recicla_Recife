@@ -100,12 +100,12 @@ body{
 
 
 /* Secao meus eventos */
-#secao_meus_eventos{
+#secao_minhas_estrategias{
     width: 95%;
     height:100%;
 }
 
-#secao_meus_eventos h1{
+#secao_minhas_estrategias h1{
     border-bottom: 1px solid rgba(128, 128, 128, 0.028);
     background-color: rgba(248, 244, 244, 0.193);
     color:rgba(34, 33, 33, 0.516);
@@ -116,7 +116,7 @@ body{
     letter-spacing: 2px;
 }
 
-#container_eventos{
+#container_estrategias{
     width: 90%;
     height: 80%;
     border: 1px solid rgba(0, 0, 0, 0.131);
@@ -127,12 +127,12 @@ body{
 
 }
 
-#container_eventos h2{
+#container_estrategias h2{
     text-align: center;
     margin: 5px 0px;
 }
 
-#container_box_eventos{
+#container_box_estrategias{
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;

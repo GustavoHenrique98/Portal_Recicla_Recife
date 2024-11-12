@@ -7,14 +7,14 @@
         <meta name="author" content="GustavoHenrique98, Luisacs923">
         <meta name="keywords" content="Reciclagem , Portal de eventos de reciclagem , eventos de reciclagem">
         <!-- CSS  -->
-        <link rel="stylesheet" href="/pages/novoEvento/novoEvento.css">
+        <link rel="stylesheet" href="/pages/novaEstrategia/novaEstrategia.css">
         <!-- CSS Responsivo -->
-        <link rel="stylesheet" href="/pages/novoEvento/novoEventoResponsivo.css">
+        <link rel="stylesheet" href="/pages/novaEstrategia/novaEstrategiaResponsivo.css">
         <!-- Fonts Awesome -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
         <!-- Axios -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.7/axios.min.js"></script>
-        <title>Cadastrar Evento - Reciclarecife</title>
+        <title>Cadastrar Estratégia - Reciclarecife</title>
     </head>
     <body>
         <header id="topo_painel">
@@ -37,32 +37,26 @@
                     <li> <a href="#" id="btn_fecharNav">X</a> </li>
                </ul>
             </nav>
-            <section id="secao_cadastro_evento">
-                <div id="container_eventos">
-                    <form action="#" method="#" id="formEvento">
+            <section id="secao_cadastro_estrategia">
+                <div id="container_estrategias">
+                    <form action="#" method="#" id="formEstrategias">
                        <fieldset>
-                            <legend>Preencha os dados do formulário</legend>
+                            <legend>Cadastre uma nova estratégia</legend>
                             <div class="box_inputs">
-                                <label for="nome_evento">Nome do Evento:</label>
-                                <input type="text" id="nome_evento" placeholder="EX: Eco Evento" required>
+                                <label for="titulo_estrategia">Titulo:</label>
+                                <input type="text" id="titulo_estrategia" placeholder="EX: Redução de Embalagens em Mercados Comunitários" required>
                             </div>
 
-                            <div id="container_inputs">
-                                <div class="box_inputs">
-                                    <label for="localizacao_evento">Localização do Evento:</label>
-                                    <input type="text" id="localizacao_evento" placeholder="EX: Eco Evento" required>
-                                </div>
-                                <div class="box_inputs">
-                                    <label for="data_evento">Data do Evento:</label>
-                                    <input type="date" id="data_evento" placeholder="EX: Eco Evento" required>
-                                </div>
-
+                           
+                            <div class="box_inputs">
+                                <label for="tipo_estrategia">Categoria:</label>
+                                <input type="text" id="tipo_estrategia" placeholder="EX: Sustentabilidade Comunitária" required>
                             </div>
 
-                            <label for="descricao_evento">Descrição do Evento:</label>
-                            <textarea name="" id="descricao_evento" placeholder="EX: Um evento com objetivo de diminuição de resíduos"></textarea>
+                            <label for="descricao_estrategia">Descrição:</label>
+                            <textarea name="" id="descricao_estrategia" placeholder="EX: Promover a diminuição do uso de embalagens descartáveis em mercados e feiras locais, incentivando o uso de sacolas reutilizáveis e recipientes retornáveis, com o objetivo de reduzir o desperdício e incentivar práticas sustentáveis entre os comerciantes e consumidores."></textarea>
 
-                            <button type="submit" id="btn_cadastro_evento">PUBLICAR</button>
+                            <button type="submit" id="btn_cadastro_evento">Cadastrar</button>
                        </fieldset>
                     </form>
                 </div>  
@@ -72,7 +66,7 @@
 
        
 
-        <script type="module" src="/scripts/NovoEvento.js"></script>
+        <script type="module" src="/scripts/NovaEstrategia.js"></script>
         <script type="module" src="/scripts/navbar_painel.js"></script>
         <script type="module" src="/scripts/Logout.js"></script>
     </body>

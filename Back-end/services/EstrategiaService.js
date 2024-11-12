@@ -8,12 +8,12 @@ class EstrategiaService{
     }
 
 
-    async createEstrategia(titulo_estrategia, tipo_estrategia, descricao_estrategia, efetividade_estrategia){
-        if(!titulo_estrategia || !tipo_estrategia || !descricao_estrategia || !efetividade_estrategia){
+    async createEstrategia(titulo_estrategia, tipo_estrategia, descricao_estrategia, organizacao_id){
+        if(!titulo_estrategia || !tipo_estrategia || !descricao_estrategia || !organizacao_id){
             console.log(`Erro , preencha todos os campos!`);
         }else{
             try{
-                const novaEstrategia = new Estrategias(titulo_estrategia, tipo_estrategia, descricao_estrategia, efetividade_estrategia);
+                const novaEstrategia = new Estrategias(titulo_estrategia, tipo_estrategia, descricao_estrategia, organizacao_id);
                 await this.EstrategiaRepository.create(novaEstrategia);
             }catch(error){
                 console.log(`Erro : ${error.message}`);
@@ -27,6 +27,19 @@ class EstrategiaService{
             return results;
         }catch(error){
             console.log(`Erro : ${error.message}`);
+        }
+    }
+
+    async listOrgEstrategies(organizacao_id){
+        if(!organizacao_id){
+            console.log(`Erro : Id da organização não fornecido!`);
+        }else{
+            try{
+                const results = await this.EstrategiaRepository.listEstrategiesFromOrgs(organizacao_id);
+                return results;
+            }catch(error){
+                console.log(`Erro : ${error.message}`);
+            }
         }
     }
 

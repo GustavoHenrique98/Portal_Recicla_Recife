@@ -62,34 +62,30 @@ function criarModal(estrategia) {
         <header>
             <h2>Detalhes da estratégia </h2>
             <div id="modal_actions">
-                <button class="btn_acoes_modal" id="updateEstrategiaBtn"><i class="fa-regular fa-pen-to-square"></i></button>
+                <button class="btn_acoes_modal" id="editEstrategiaBtn"><i class="fa-regular fa-pen-to-square"></i></button>
                 <button class="btn_acoes_modal" id="deleteEstrategiaBtn"><i class="fa-solid fa-trash-can"></i></button>
                 <button class="btn_acoes_modal" id="closeModalBtn"><i class="fa-solid fa-xmark"></i></button>
             </div>
         </header>
-        <form action="#" method="#" id="modal_eventos">
+        <form action="#" method="#" id="modal_estrategia">
             <fieldset>
                 <div class="box_modal_inputs">
-                    <label for="modal_nome_estrategia">Nome do Evento:</label>
-                    <input type="text" id="modal_nome_estrategia"  class="inputs" value="${evento.nome_evento}" disabled>
+                    <label for="modal_titulo_estrategia">Titulo:</label>
+                    <input type="text" id="modal_titulo_estrategia"  class="inputs" value="${estrategia.titulo_estrategia}" disabled>
                 </div>
                 <div id="container_box_modal_inputs">
                     <div class="box_modal_inputs">
-                        <label for="modal_localizacao_evento">Localização do Evento:</label>
-                        <input type="text" id="modal_tipo_estrategia"  class="inputs" value="${evento.localizacao_evento}" disabled>
-                    </div>
-                    <div class="box_modal_inputs">
-                        <label for="modal_data_evento">Data do Evento:</label>
-                        <input type="date" id="modal_data_evento"   class="inputs" value="${dataFormatada}" disabled>
+                        <label for="modal_tipo_estrategia">Tipo:</label>
+                        <input type="text" id="modal_tipo_estrategia"  class="inputs" value="${estrategia.tipo_estrategia}" disabled>
                     </div>
                 </div>
                 
-                <div id="container_desc_evento">
-                    <label for="modal_descricao_evento">Descrição do evento:</label>
-                    <textarea id="modal_descricao_evento" disabled  class="inputs">${evento.descricao_evento}</textarea>
+                <div id="container_desc_estrategia">
+                    <label for="modal_descricao_evento">Descrição:</label>
+                    <textarea id="modal_descricao_evento" disabled  class="inputs">${estrategia.descricao_estrategia}</textarea>
                 </div>
 
-                <button type="submit" id="btn_updateEvento" class="inputs">Atualizar</button>
+                <button type="submit" id="btn_updateEstrategia" class="inputs">Atualizar</button>
             </fieldset>
         </form>
     `;
@@ -104,56 +100,61 @@ function criarModal(estrategia) {
         document.body.removeChild(modal);
     });
 
-    //Atualizar eventos
-    const formulario = getDOM('#modal_eventos')
-    const updateEventoBtn = getDOM('#updateEventoBtn');
-    const btnUpdate = getDOM('#btn_updateEvento');
-    const deleteEventoBtn = getDOM('#deleteEventoBtn');
+    //Atualizar Estrategias
+    const formulario = getDOM('#modal_estrategia'); 
+    const editEstrategiaBtn = getDOM("#editEstrategiaBtn");
+    const btn_updateEstrategia = getDOM("#btn_updateEstrategia");
     const tituloModal = getDOM('h2');
     const inputs = getDomAll('.inputs');
 
-
-    updateEventoBtn.addEventListener('click',()=>{
+    editEstrategiaBtn.addEventListener('click',()=>{
         inputs.forEach((inputs,i)=>{
             inputs.disabled = false;
-            tituloModal.textContent = "Atualizar evento"
-            btnUpdate.style.display="block";
+            tituloModal.textContent = "Atualizar Estratégia"
+            btn_updateEstrategia.style.display="block";
         });
     });
 
     formulario.addEventListener('submit',async(e)=>{
         e.preventDefault();
         try{
-            const nome_evento = inputs[0].value;
-            const localizacao_evento = inputs[1].value;
-            const data_evento = inputs[2].value
-            const descricao_evento = inputs[3].value;
-            const response = await axios.put(`/api/eventos/update/${evento.ID}`,{
-                nome_evento,
-                localizacao_evento,
-                data_evento,
-                descricao_evento,
+            const titulo_estrategia = inputs[0].value;
+            const tipo_estrategia = inputs[1].value;
+            const descricao_estrategia = inputs[2].value
+            const organizacao_id = JSON.parse(localStorage.getItem("organizacao")).ID;
+            
+            const response = await axios.put(`/api/estrategias/update/${estrategia.ID}`,{
+                titulo_estrategia,
+                tipo_estrategia,
+                descricao_estrategia,
+                organizacao_id,
             });
 
             if(response.status===200){
                 alert(response.data);
-                window.location.href="/painel";
+                window.location.href="/painel/minhas-estrategias";
             }
         }catch(error){
             console.log(error.response.data);
         }
     })
     
-    deleteEventoBtn.addEventListener('click',async()=>{
+
+    const deleteEstrategiaBtn = getDOM("#deleteEstrategiaBtn");
+
+    // Deletar estratégias.
+    deleteEstrategiaBtn.addEventListener('click',async()=>{
         try{
-            const response = await axios.delete(`/api/eventos/delete/${evento.ID}`);
+            const response = await axios.delete(`/api/estrategias/delete/${estrategia.ID}`);
             alert(response.data)
-            window.location.href="/painel";
+            window.location.href="/painel/minhas-estrategias";
             
         }catch(error){
             console.log(error.response);
         }
     })
+
+
    
 
 

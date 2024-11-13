@@ -209,10 +209,10 @@ body{
   }
 
   /* Formulário */
-  #modal_eventos{
+  #modal_estrategia{
     height: 100%;
   }
-  #modal_eventos fieldset{
+  #modal_estrategia fieldset{
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -242,7 +242,7 @@ body{
     width: 100%;
   }
   
-  #container_desc_evento{
+  #container_desc_estrategia{
     display: flex;
     flex-direction: column;
     margin: 10px 10px;
@@ -250,14 +250,14 @@ body{
     
   }
 
-  #container_desc_evento textarea{
+  #container_desc_estrategia textarea{
     width: 100%;
     height: 100px;
     border: 1px solid black;
     resize: none;
   }
 
-  #btn_updateEvento{
+  #btn_updateEstrategia{
     display: block;
     width: fit-content;
     margin: auto;

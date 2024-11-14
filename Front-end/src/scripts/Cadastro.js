@@ -23,6 +23,7 @@ cadastro.form.addEventListener('submit',async(e)=>{
     const telefone = cadastro.reg_telefone.value;
     const localizacao_organizacao = cadastro.reg_localizacao.value;
     const responsavel_organizacao = cadastro.reg_responsavel.value;
+
     try{
         const response = await axios.post('/api/organizacoes/insert',{
             cnpj,
@@ -34,6 +35,7 @@ cadastro.form.addEventListener('submit',async(e)=>{
             localizacao_organizacao,
             responsavel_organizacao
         })
+        
         alert(response.data);
         window.location.href ="/"
     }catch(error){

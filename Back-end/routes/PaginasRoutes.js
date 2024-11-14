@@ -49,5 +49,9 @@ Router.get('/painel/minhas-estrategias',(req,res)=>{
     res.sendFile(path.join(__dirname, '../../Front-end/src/pages/minhasEstrategias/index.html'));
 });
 
+//Página de associar estratégias
+Router.get('/painel/associar-estrategias',(req,res)=>{
+    res.sendFile(path.join(__dirname, '../../Front-end/src/pages/associar_estrategias/index.html'));
+});
 
 export default Router;

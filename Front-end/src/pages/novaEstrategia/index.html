@@ -52,9 +52,15 @@
                                 <label for="tipo_estrategia">Categoria:</label>
                                 <input type="text" id="tipo_estrategia" placeholder="EX: Sustentabilidade Comunitária" required>
                             </div>
-
+                            
+                            <div class="box_inputs">
+                                <label for="associar_estrategia">Associar estratégia a evento</label>
+                                <select name="associar_estrategia" id="associar_estrategia" required> 
+                                    <option value="#" disabled selected>Selecione um evento para associar esta estratégia</option>
+                                </select>
+                            </div>
                             <label for="descricao_estrategia">Descrição:</label>
-                            <textarea name="" id="descricao_estrategia" placeholder="EX: Promover a diminuição do uso de embalagens descartáveis em mercados e feiras locais, incentivando o uso de sacolas reutilizáveis e recipientes retornáveis, com o objetivo de reduzir o desperdício e incentivar práticas sustentáveis entre os comerciantes e consumidores."></textarea>
+                            <textarea name="" id="descricao_estrategia" placeholder="EX: Promover a diminuição do uso de embalagens descartáveis em mercados e feiras locais, incentivando o uso de sacolas reutilizáveis e recipientes retornáveis, com o objetivo de reduzir o desperdício e incentivar práticas sustentáveis entre os comerciantes e consumidores." required ></textarea>
 
                             <button type="submit" id="btn_cadastro_evento">Cadastrar</button>
                        </fieldset>

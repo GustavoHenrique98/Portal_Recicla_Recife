@@ -43,6 +43,7 @@ class EstrategiaService{
         }
     }
 
+
     async readEstrategia(id_estrategia){
         if(!id_estrategia){
             console.log("Erro : Id da estratégia não fornecido! ");

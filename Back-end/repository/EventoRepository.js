@@ -68,13 +68,13 @@ class EventoRepository{
 
     async update(id_evento, evento){
         try{
-            const [results] = await conection.query('UPDATE Eventos SET nome_evento = ? , localizacao_evento = ? , descricao_evento = ? , data_criacao_evento = ? , data_inicio_evento = ? , data_final_evento = ? , organizacao_id = ? , estrategia_id = ?   WHERE ID = ?',
-            [evento.nome_evento, evento.localizacao_evento, evento.descricao_evento, evento.data_criacao_evento, evento.data_inicio_evento , evento.data_final_evento, evento.organizacao_id,evento.estrategia_id , id_evento]);
+            const [results] = await conection.query('UPDATE Eventos SET nome_evento = ? , localizacao_evento = ? , descricao_evento = ? , data_inicio_evento = ? , data_final_evento = ?    WHERE ID = ?',
+            [evento.nome_evento, evento.localizacao_evento, evento.descricao_evento,  evento.data_inicio_evento , evento.data_final_evento , id_evento]);
 
             if(results.affectedRows === 0){
                 return null;
             }
-
+            
         }catch(error){
             console.log(`Error : ${error.message}`);
         }

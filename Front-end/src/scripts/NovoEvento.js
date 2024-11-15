@@ -29,6 +29,8 @@ evento.form.addEventListener('submit', async (e)=>{
             estrategia_id
         });
         alert(response.data.message);
+        window.location.href="/painel/novo-evento";
+        
         evento.form.reset();
     }catch(error){
         console.error(error.response.message);

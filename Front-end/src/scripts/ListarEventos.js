@@ -34,9 +34,6 @@ window.addEventListener('load', async () => {
                                 <td class="info_evento">Descrição: ${evento.descricao_evento}</td>
                             </tr>
                             
-                            <tr>
-                                <td class="info_evento">Criado em: ${evento.data_criacao_evento}</td>
-                            </tr>
 
                             <tr>
                                 <td class="info_evento">Data de início: ${evento.data_inicio_evento}</td>
@@ -71,7 +68,6 @@ function criarModal(evento) {
         return `${ano}-${mes}-${dia}`;
     }
 
-    const dataCriacaoEvento = formatarData(evento.data_criacao_evento);
     const dataInicioEvento = formatarData(evento.data_inicio_evento);
     const dataFinalEvento = formatarData(evento.data_final_evento);
 
@@ -93,20 +89,31 @@ function criarModal(evento) {
                     <label for="modal_nome_evento">Nome do Evento:</label>
                     <input type="text" id="modal_nome_evento"  class="inputs" value="${evento.nome_evento}" disabled>
                 </div>
-                <div id="container_box_modal_inputs">
-                    <div class="box_modal_inputs">
+
+                <div class="box_modal_inputs">
                         <label for="modal_localizacao_evento">Localização do Evento:</label>
                         <input type="text" id="modal_localizacao_evento"  class="inputs" value="${evento.localizacao_evento}" disabled>
-                    </div>
-                    <div class="box_modal_inputs">
-                        <label for="modal_data_evento">Data do Evento:</label>
-                        <input type="date" id="modal_data_evento"   class="inputs" value="${dataInicioEvento}" disabled>
-                    </div>
                 </div>
+
+                <div class="container_box_modal_inputs">
+                  
+                  <div class="box_modal_inputs">
+                        <label for="modal_data_evento">Data de inicio:</label>
+                        <input type="date" id="modal_data_evento"  class="inputs" value="${dataInicioEvento}" disabled>
+                  </div>
+
+                   <div class="box_modal_inputs">
+                       <label for="modal_data_evento">Data de encerramento:</label>
+                       <input type="date" id="modal_data_evento"  class="inputs" value="${dataFinalEvento}" disabled>
+                   </div>
+
+                </div>
+                   
                 
                 <div id="container_desc_evento">
                     <label for="modal_descricao_evento">Descrição do evento:</label>
                     <textarea id="modal_descricao_evento" disabled  class="inputs">${evento.descricao_evento}</textarea>
+                    
                 </div>
 
                 <button type="submit" id="btn_updateEvento" class="inputs">Atualizar</button>
@@ -116,7 +123,7 @@ function criarModal(evento) {
     
     document.body.appendChild(modal);
     modal.showModal();
-
+    
     //Fechar o modal
     const closeModalBtn = document.getElementById('closeModalBtn');
     closeModalBtn.addEventListener('click', () => {
@@ -144,37 +151,37 @@ function criarModal(evento) {
     formulario.addEventListener('submit',async(e)=>{
         e.preventDefault();
         try{
-            const nome_evento = inputs[0].value;
-            const localizacao_evento = inputs[1].value;
-            const data_evento = inputs[2].value
-            const descricao_evento = inputs[3].value;
-            const response = await axios.put(`/api/eventos/update/${evento.ID}`,{
-                nome_evento,
-                localizacao_evento,
-                data_evento,
-                descricao_evento,
-            });
+           const nome_evento = inputs[0].value;
+           const localizacao_evento = inputs[1].value;
+           const data_inicio_evento = inputs[2].value;
+           const data_final_evento = inputs[3].value;
+           const descricao_evento = inputs[4].value;
 
-            if(response.status===200){
-                alert(response.data);
-                window.location.href="/painel";
-            }
+           const response = await axios.put(`/api/eventos/update/${evento.ID}`,{
+            nome_evento,
+            localizacao_evento,
+            descricao_evento,
+            data_inicio_evento,
+            data_final_evento,
+           });
+
+           alert(response.data.message);
+           window.location.href="/painel";
+
         }catch(error){
-            console.log(error.response.data);
+            console.log(error.response.data.message);
         }
     })
     
     deleteEventoBtn.addEventListener('click',async()=>{
         try{
             const response = await axios.delete(`/api/eventos/delete/${evento.ID}`);
-            alert(response.data)
+            alert(response.data.message);
             window.location.href="/painel";
             
         }catch(error){
-            console.log(error.response);
+            console.log(error.response.message);
         }
     })
    
-
-
 }

@@ -209,11 +209,8 @@ body{
   }
 
   /* Formulário */
-  #modal_eventos{
-    height: 100%;
-  }
+  
   #modal_eventos fieldset{
-    height: 100%;
     display: flex;
     flex-direction: column;
     border: none;
@@ -232,13 +229,15 @@ body{
   }
   .box_modal_inputs input{
     padding: 3px 0px;
+    width: 100%;
   }
 
-  #container_box_modal_inputs{
+  .container_box_modal_inputs{
     display: flex;
+    gap: 10px;
     
   }
-  #container_box_modal_inputs .box_modal_inputs{
+  .container_box_modal_inputs .box_modal_inputs{
     width: 100%;
   }
   

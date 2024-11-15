@@ -1,4 +1,4 @@
-@media screen and (max-width:757px){
+@media screen and (max-width:790px){
     /* Painel responsivo */
     #topo_painel{
         display: flex;
@@ -39,6 +39,9 @@
         height: 83%;
     }
 
+   #modal{
+    width:80% ;
+   }
 }
 @media screen and (max-width:600px){
    
@@ -51,7 +54,46 @@
     /* Modal */
    #modal{
     width: 100%;
-    height: 80%;
+    height: 90%;
+    
+    padding: 0;
+   }
+   .box_modal_inputs{
+     width: 100%;
+     margin: 10px 0px;
+   }
+
+   .box_modal_inputs input{
+    width: 100%;
+   }
+
+   .container_box_modal_inputs{
+    display: flex;
+    flex-direction: column;
+   }
+
+   #container_desc_evento{
+    margin: 10px 0px;
+   }
+   #container_desc_evento textarea{
+    height: 200px;
+   }
+
+}
+
+
+@media screen and (max-width:370px){
+   
+    /*Eventos  */
+    .box_evento{
+        width: 100%;
+    }
+
+
+    /* Modal */
+   #modal{
+    width: 100% !important;
+    height: 90%;
     overflow: visible;
     padding: 0;
    }
@@ -60,9 +102,9 @@
      margin: 10px 0px;
    }
 
-   #container_box_modal_inputs{
+   .container_box_modal_inputs{
     display: flex;
-    flex-direction: column;
+    gap: 10px;
    }
 
    #container_desc_evento{

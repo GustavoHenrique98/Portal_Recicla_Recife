@@ -34,6 +34,7 @@ window.addEventListener('load', async () => {
                                 <td class="info_evento">Descrição: ${estrategia.descricao_estrategia}</td>
                             </tr>
                             
+                            
                         </tbody>
                     </table>
                 `;

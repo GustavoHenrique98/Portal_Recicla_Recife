@@ -1,5 +1,5 @@
 create database recicla_recife;
--- drop database recicla_recife;
+drop database recicla_recife;
 use recicla_recife;
 
 create table Organizacoes(
@@ -14,17 +14,6 @@ create table Organizacoes(
     responsavel_organizacao VARCHAR(60)
 );
 
-
-create table Eventos(
-	ID INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-    nome_evento VARCHAR(100),
-    localizacao_evento TEXT,
-    descricao_evento TEXT,
-    data_evento DATE , 
-    organizacao_id INT ,
-    FOREIGN KEY (organizacao_id) REFERENCES Organizacoes(ID) ON DELETE CASCADE
-);
-
 create table Estrategias(
 	ID INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
 	titulo_estrategia VARCHAR(50),
@@ -34,24 +23,22 @@ create table Estrategias(
     FOREIGN KEY (organizacao_id) REFERENCES Organizacoes(ID) ON DELETE CASCADE
 );
 
-
-
-create table Est_evt(
-	id_evento INT, 
-    id_Estrategia INT,
-    PRIMARY KEY (id_evento,id_estrategia),
-    FOREIGN KEY(id_evento) REFERENCES Eventos(ID) ON DELETE CASCADE,
-    FOREIGN KEY (id_estrategia) REFERENCES Estrategias(ID) ON DELETE CASCADE
+create table Eventos(
+	ID INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    nome_evento VARCHAR(100),
+    localizacao_evento TEXT,
+    descricao_evento TEXT,
+    data_criacao_evento DATE,
+    data_inicio_evento DATE,
+    data_final_evento DATE,
+    organizacao_id INT,
+    estrategia_id int,
+    FOREIGN KEY (organizacao_id) REFERENCES Organizacoes(ID) ON DELETE CASCADE,
+    FOREIGN KEY (estrategia_id) REFERENCES Estrategias(ID) ON DELETE CASCADE
 );
-
--- INSERTS
 
 -- SELECTS
 
 SELECT * FROM Organizacoes;
 SELECT * FROM Eventos;
 SELECT * FROM Estrategias;
-
-
-Delete FROM estrategias WHERE ID = 1;
-SELECT * FROM Est_evt;

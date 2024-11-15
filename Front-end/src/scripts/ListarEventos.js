@@ -33,10 +33,20 @@ window.addEventListener('load', async () => {
                             <tr>
                                 <td class="info_evento">Descrição: ${evento.descricao_evento}</td>
                             </tr>
+                            
                             <tr>
-                                <td class="info_evento">Data: ${evento.data_evento}</td>
+                                <td class="info_evento">Criado em: ${evento.data_criacao_evento}</td>
+                            </tr>
+
+                            <tr>
+                                <td class="info_evento">Data de início: ${evento.data_inicio_evento}</td>
+                            </tr>
+
+                            <tr>
+                                <td class="info_evento">Data de encerramento: ${evento.data_final_evento}</td>
                             </tr>
                             
+
                         </tbody>
                     </table>
                 `;
@@ -61,7 +71,9 @@ function criarModal(evento) {
         return `${ano}-${mes}-${dia}`;
     }
 
-    const dataFormatada = formatarData(evento.data_evento);
+    const dataCriacaoEvento = formatarData(evento.data_criacao_evento);
+    const dataInicioEvento = formatarData(evento.data_inicio_evento);
+    const dataFinalEvento = formatarData(evento.data_final_evento);
 
     const modal = document.createElement('dialog');
     modal.id = 'modal';
@@ -88,7 +100,7 @@ function criarModal(evento) {
                     </div>
                     <div class="box_modal_inputs">
                         <label for="modal_data_evento">Data do Evento:</label>
-                        <input type="date" id="modal_data_evento"   class="inputs" value="${dataFormatada}" disabled>
+                        <input type="date" id="modal_data_evento"   class="inputs" value="${dataInicioEvento}" disabled>
                     </div>
                 </div>
                 

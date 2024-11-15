@@ -1,9 +1,7 @@
 import express from 'express';
 import EstrategiaService from '../services/EstrategiaService.js';
-import est_evtService from '../services/Est_EvtServices.js';
 
 const estService = new EstrategiaService();
-const est_evtServices = new est_evtService();
 const Router = express.Router();
 
 Router.post('/insert', async(req,res)=>{
@@ -28,16 +26,16 @@ Router.post('/insert', async(req,res)=>{
     }
 });
 
-Router.post('/associate',async(req,res)=>{
-    const post_data = req.body;
-    const {id_evento,id_estrategia} = post_data;
-    try{
-        const response = await est_evtServices.associateEst_evt(id_evento,id_estrategia);
-        res.send('Estratégia associada com sucesso!');    
-    }catch(error){
-        res.status(500).send(`Error : ${error.message}`);
-    }
-});
+// Router.post('/associate',async(req,res)=>{
+//     const post_data = req.body;
+//     const {id_evento,id_estrategia} = post_data;
+//     try{
+//         const response = await est_evtServices.associateEst_evt(id_evento,id_estrategia);
+//         res.send('Estratégia associada com sucesso!');    
+//     }catch(error){
+//         res.status(500).send(`Error : ${error.message}`);
+//     }
+// });
 
 Router.get('/list', async(req,res)=>{
     try{

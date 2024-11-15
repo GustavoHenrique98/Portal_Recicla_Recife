@@ -5,8 +5,8 @@ import conection from '../database/db.js';
 class EventoRepository{
     async create(evento){
         try{
-            const [results] = await conection.query('INSERT INTO Eventos (nome_evento, localizacao_evento, descricao_evento, data_evento, organizacao_id) VALUES(?,?,?,?,?)',
-            [evento.nome_evento, evento.localizacao_evento, evento.descricao_evento, evento.data_evento, evento.organizacao_id]);
+            const [results] = await conection.query('INSERT INTO Eventos (nome_evento, localizacao_evento, descricao_evento, data_criacao_evento,data_inicio_evento , data_final_evento, organizacao_id , estrategia_id) VALUES(?,?,?,NOW(),?,?,?,?)',
+            [evento.nome_evento, evento.localizacao_evento, evento.descricao_evento, evento.data_inicio_evento , evento.data_final_evento, evento.organizacao_id,evento.estrategia_id ]);
         }catch(error){
             console.log(`Error : ${error.message}`);
         }
@@ -26,11 +26,15 @@ class EventoRepository{
             console.log(`Error : ${error.message}`);
         }
     }
+    
     async listEventsFromOrgs(organizacao_id) {
         try {
             const [results] = await conection.query(
                 `SELECT ID, nome_evento, localizacao_evento, descricao_evento, 
-                        DATE_FORMAT(data_evento, '%d/%m/%Y') AS data_evento, organizacao_id 
+                        DATE_FORMAT(data_criacao_evento, '%d/%m/%Y') AS data_criacao_evento,
+                        DATE_FORMAT(data_inicio_evento, '%d/%m/%Y')AS data_inicio_evento,
+                        DATE_FORMAT(data_final_evento, '%d/%m/%Y') AS data_final_evento ,
+                        estrategia_id , organizacao_id 
                  FROM Eventos 
                  WHERE organizacao_id = ?`, 
                 [organizacao_id]
@@ -55,7 +59,7 @@ class EventoRepository{
             if(!evento){
                 return null;
             }else{
-                return new Eventos(evento.nome_evento, evento.localizacao_evento, evento.descricao_evento, evento.data_evento, evento.organizacao_id, evento.ID);
+                return new Eventos(evento.nome_evento, evento.localizacao_evento, evento.descricao_evento, evento.data_criacao_evento, evento.data_inicio_evento , evento.data_final_evento, evento.organizacao_id,evento.estrategia_id, evento.ID);
             }
         }catch(error){
             console.log(`Error : ${error.message}`);
@@ -64,8 +68,8 @@ class EventoRepository{
 
     async update(id_evento, evento){
         try{
-            const [results] = await conection.query('UPDATE Eventos SET nome_evento = ? , localizacao_evento = ? , descricao_evento = ? , data_evento = ? , organizacao_id = ?   WHERE ID = ?',
-            [evento.nome_evento, evento.localizacao_evento, evento.descricao_evento, evento.data_evento, evento.organizacao_id,  id_evento]);
+            const [results] = await conection.query('UPDATE Eventos SET nome_evento = ? , localizacao_evento = ? , descricao_evento = ? , data_criacao_evento = ? , data_inicio_evento = ? , data_final_evento = ? , organizacao_id = ? , estrategia_id = ?   WHERE ID = ?',
+            [evento.nome_evento, evento.localizacao_evento, evento.descricao_evento, evento.data_criacao_evento, evento.data_inicio_evento , evento.data_final_evento, evento.organizacao_id,evento.estrategia_id , id_evento]);
 
             if(results.affectedRows === 0){
                 return null;

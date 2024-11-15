@@ -8,12 +8,12 @@ class EventoService{
     }
 
 
-    async createEvento(nome_evento, localizacao_evento, descricao_evento, data_evento, organizacao_id){
-        if(!nome_evento || !localizacao_evento || !descricao_evento || !data_evento ||!organizacao_id){
-            console.log(`Erro , preencha todos os campos!`);
+    async createEvento(nome_evento, localizacao_evento, descricao_evento, data_inicio_evento, data_final_evento, organizacao_id,estrategia_id){
+        if(!nome_evento || !localizacao_evento || !descricao_evento || !data_inicio_evento|| !data_final_evento  || !organizacao_id){
+            console.log(`Erro , insira todos os argumentos da função!`);
         }else{
             try{
-                const novoEvento = new Eventos(nome_evento, localizacao_evento, descricao_evento, data_evento, organizacao_id);
+                const novoEvento = new Eventos(nome_evento, localizacao_evento, descricao_evento, data_inicio_evento,data_final_evento,organizacao_id, estrategia_id);
                 await this.EventoRepository.create(novoEvento);
             }catch(error){
                 console.log(`Erro : ${error.message}`);

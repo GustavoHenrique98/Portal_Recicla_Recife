@@ -4,15 +4,16 @@ import EventoService from '../services/EventoService.js';
 const evService = new EventoService();
 const Router = express.Router();
 
-Router.post('/insert', async(req,res)=>{
+Router.post('/insert', async(req, res) => {
     const post_data = req.body;
-    const {nome_evento, localizacao_evento, descricao_evento, data_evento, organizacao_id} = post_data;
+    const {nome_evento, localizacao_evento, descricao_evento, data_inicio_evento, data_final_evento, organizacao_id, estrategia_id} = post_data;
 
-    try{
-        await evService.createEvento(nome_evento, localizacao_evento, descricao_evento, data_evento, organizacao_id);
-        res.send({message:'Novo evento cadastrado com sucesso!!!'});
-    }catch(error){
-        res.status(500).send({error:`Erro : ${error.message}`});
+    try {
+        // Corrigir a ordem dos parâmetros ao chamar createEvento
+        await evService.createEvento(nome_evento, localizacao_evento, descricao_evento, data_inicio_evento, data_final_evento, organizacao_id, estrategia_id); 
+        res.send({ message: 'Novo evento cadastrado com sucesso!!!' });
+    } catch (error) {
+        res.status(500).send({ message: `Erro : ${error.message}` });
     }
 });
 
@@ -21,7 +22,7 @@ Router.get('/list', async(req,res)=>{
         const results = await evService.listEventos();
         res.send(results);
     }catch(error){
-        res.status(500).send(`Erro : ${error.message}`);
+        res.status(500).send({message:`Erro : ${error.message}`});
     }
 });
 
@@ -35,7 +36,7 @@ Router.get('/events-from-org/:organizacao_id', async(req,res)=>{
             res.send(results);
         }
     }catch(error){
-        res.status(500).send(`Erro : ${error.message}`);
+        res.status(500).send({message:`Erro : ${error.message}`});
     }
 });
 
@@ -44,12 +45,12 @@ Router.get('/list/:id_evento', async(req,res)=>{
     try{
         const results = await evService.readEvento(id_evento);
         if(results === null){
-            res.status(404).send('Erro : Evento não encontrado!');
+            res.status(404).send({message:'Erro : Evento não encontrado!'});
         }else{
             res.send(results);
         }
     }catch(error){
-        res.status(500).send(`Erro : ${error.message}`);
+        res.status(500).send({message:`Erro : ${error.message}`});
     }
 });
 
@@ -57,11 +58,11 @@ Router.get('/list/:id_evento', async(req,res)=>{
 Router.put('/update/:id_evento', async(req,res)=>{
     const update_data = req.body;
     const id_evento = req.params.id_evento;
-    const{ nome_evento, localizacao_evento, descricao_evento, data_evento, organizacao_id} = update_data;
+    const{ nome_evento, localizacao_evento, descricao_evento, data_inicio_evento, data_final_evento , estrategia_id, organizacao_id} = update_data;
     
 
     if(Object.keys(update_data).length === 0){
-        res.status(422).send('Erro! Corpo da requisição vazio!');
+        res.status(422).send({message:'Erro! Corpo da requisição vazio!'});
         return;
     }
     
@@ -69,17 +70,17 @@ Router.put('/update/:id_evento', async(req,res)=>{
         const evento = await evService.readEvento(id_evento);
 
         if(evento === null){
-            res.status(404).send('Error ! ID da organização inválido!');
+            res.status(404).send({message : 'Error ! ID da organização inválido!'});
         }else{
             const eventoUpdated = {...evento , ...update_data};
 
             await evService.updateEvento(id_evento,eventoUpdated);
 
-            res.send('Evento atualizado com sucesso!');
+            res.send({message:'Evento atualizado com sucesso!' });
         }
         
     }catch(error){
-        res.status(500).send(`Erro : ${error.message}`); 
+        res.status(500).send({message:`Erro : ${error.message}`}); 
     }
 });
 
@@ -91,12 +92,12 @@ Router.delete('/delete/:id_evento', async(req,res)=>{
     try{
         const results = await evService.deleteEvento(id_evento);
         if(results === null){
-            res.status(404).send('Erro : ID do evento inválido!');
+            res.status(404).send({message:'Erro : ID do evento inválido!'});
         }else{
-            res.send('Evento deletado com sucesso!');
+            res.send({message:'Evento deletado com sucesso!'});
         }
     }catch(error){
-        res.status(500).send(`Erro : ${error.message}`); 
+        res.status(500).send({message : `Erro : ${error.message}`}); 
     }
 });
 

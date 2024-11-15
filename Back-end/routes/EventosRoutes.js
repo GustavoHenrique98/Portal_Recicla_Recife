@@ -58,7 +58,7 @@ Router.get('/list/:id_evento', async(req,res)=>{
 Router.put('/update/:id_evento', async(req,res)=>{
     const update_data = req.body;
     const id_evento = req.params.id_evento;
-    const{ nome_evento, localizacao_evento, descricao_evento, data_inicio_evento, data_final_evento} = update_data;
+    const{ nome_evento, localizacao_evento, descricao_evento, data_inicio_evento, data_final_evento, estrategia_id} = update_data;
     
 
     if(Object.keys(update_data).length === 0){

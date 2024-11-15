@@ -56,12 +56,13 @@ novaEstrategia.form.addEventListener('submit', async (e) => {
     
     const eventoFiltrado = eventos.find(evento => evento.nome_evento === evento_escolhido);
 
-    //Agora precisamos recuperar o ID do evento que acabou de ser cadastrado.
     
-    //Fazendo requisição para retornar todos os eventos da organização que está cadastrando
+    // //Fazendo requisição para retornar a estrategia que acabou de ser cadastrada.
     const responseEstrategias = await axios.get(`/api/estrategias/list/estrategies-from-orgs/${organizacao_id}`);
     const estrategias = responseEstrategias.data;
 
+    //Percorrendo todo o array de estrategias pertencentes a organização logada e comparar com os valores dos inputs no front-end
+    //para assim poder retornar a estratégia que acabou de ser cadastrada.
     const estrategiaFiltrada = estrategias.find(estrategia => 
         estrategia.titulo_estrategia === titulo_estrategia &&
         estrategia.tipo_estrategia === tipo_estrategia &&
@@ -70,11 +71,11 @@ novaEstrategia.form.addEventListener('submit', async (e) => {
 
     
     try{
-        const associarEstrategias  = await axios.post('/api/estrategias/associate',{
-            id_evento:eventoFiltrado.ID,
-            id_estrategia:estrategiaFiltrada.ID
+        const updateEvento  = await axios.put(`/api/eventos/update/${eventoFiltrado.ID}`,{
+            estrategia_id:estrategiaFiltrada.ID
         });
-    
+        
+
     }catch(error){
         console.log(error.response)
     }
@@ -82,7 +83,8 @@ novaEstrategia.form.addEventListener('submit', async (e) => {
     alert(response.data);
         
 } catch (error) {
-    console.log(error.response.data);
+    console.log(error)
+    // console.log(error.response.data.message);
  }
 
 

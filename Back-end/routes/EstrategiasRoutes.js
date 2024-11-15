@@ -13,11 +13,6 @@ Router.post('/insert', async(req,res)=>{
         return;
     }
 
-    if(!titulo_estrategia || !tipo_estrategia || !descricao_estrategia || !organizacao_id ){
-        res.status(422).send('Erro! Dados incompletos preencha todos os campos! ');
-        return;
-    }
-
     try{
         await estService.createEstrategia(titulo_estrategia, tipo_estrategia, descricao_estrategia, organizacao_id);
         res.send('Nova estratégia cadastrada com sucesso!!!');
@@ -26,16 +21,6 @@ Router.post('/insert', async(req,res)=>{
     }
 });
 
-// Router.post('/associate',async(req,res)=>{
-//     const post_data = req.body;
-//     const {id_evento,id_estrategia} = post_data;
-//     try{
-//         const response = await est_evtServices.associateEst_evt(id_evento,id_estrategia);
-//         res.send('Estratégia associada com sucesso!');    
-//     }catch(error){
-//         res.status(500).send(`Error : ${error.message}`);
-//     }
-// });
 
 Router.get('/list', async(req,res)=>{
     try{

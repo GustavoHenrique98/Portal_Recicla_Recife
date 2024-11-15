@@ -5,7 +5,7 @@ import conection from '../database/db.js';
 class EstrategiaRepository{
     async create(estrategia){
         try{
-            const [results] = await conection.query('INSERT INTO Estrategias (titulo_estrategia, tipo_estrategia, descricao_estrategia, data_criacao_evento, data_inicio_evento, data_final_evento, organizacao_id, estrategia_id) VALUES(?,?,?,?)',
+            const [results] = await conection.query('INSERT INTO Estrategias (titulo_estrategia, tipo_estrategia, descricao_estrategia, organizacao_id) VALUES(?,?,?,?)',
             [estrategia.titulo_estrategia, estrategia.tipo_estrategia, estrategia.descricao_estrategia, estrategia.organizacao_id]);
 
         }catch(error){

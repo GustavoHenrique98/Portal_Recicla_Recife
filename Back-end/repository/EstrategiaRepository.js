@@ -9,7 +9,7 @@ class EstrategiaRepository{
             [estrategia.titulo_estrategia, estrategia.tipo_estrategia, estrategia.descricao_estrategia, estrategia.organizacao_id]);
 
         }catch(error){
-            console.log(`Error : ${error.message}`);
+            console.log(`Repository Error : ${error.message}`);
         }
     }
 
@@ -24,7 +24,7 @@ class EstrategiaRepository{
             return results;
 
         }catch(error){
-            console.log(`Error : ${error.message}`);
+            console.log(`Repository Error : ${error.message}`);
         }
     }
 
@@ -39,7 +39,26 @@ class EstrategiaRepository{
             return results;
 
         }catch(error){
-            console.log(`Error : ${error.message}`);
+            console.log(`Repository Error : ${error.message}`);
+        }
+    }
+
+    async listEstrategiesFromEvents(estrategia_id){
+        try{
+            const [results]  = await conection.query(`SELECT 
+            estrategias.*
+            FROM  eventos
+            INNER JOIN  estrategias
+            ON  eventos.estrategia_id = estrategias.ID
+            WHERE  estrategias.ID = ?;`,[estrategia_id])
+            const estrategia = results[0];            
+            if(!estrategia){
+                return null;
+            }
+
+            return results;
+        }catch(error){
+            console.log(`Repository Error : ${error.message}`);
         }
     }
 
@@ -55,7 +74,7 @@ class EstrategiaRepository{
                 return new Estrategias(estrategia.titulo_estrategia, estrategia.tipo_estrategia, estrategia.descricao_estrategia, estrategia.organizacao_id, estrategia.ID);
             }
         }catch(error){
-            console.log(`Error : ${error.message}`);
+            console.log(`Repository Error : ${error.message}`);
         }
     }
 
@@ -69,7 +88,7 @@ class EstrategiaRepository{
             }
 
         }catch(error){
-            console.log(`Error : ${error.message}`);
+            console.log(`Repository Error : ${error.message}`);
         }
     }
 
@@ -82,15 +101,11 @@ class EstrategiaRepository{
                 return null;
             }
         }catch(error){
-            console.log(`Error : ${error.message}`);
+            console.log(`Repository Error : ${error.message}`);
         }
     }
 
 }
-
-
-
-
 
 
 export default EstrategiaRepository;

@@ -58,6 +58,21 @@ Router.get('/list/estrategies-from-orgs/:organizacao_id',async(req,res)=>{
     }catch(error){
 
     }
+});
+
+Router.get('/list/estrategies-from-events/:estrategia_id',async(req,res)=>{
+    const estrategia_id = req.params.estrategia_id;
+    
+    try{
+        const results = await estService.listEstEvt(estrategia_id);
+        if(results === null){
+            res.status(404).send([]);
+        }else{
+            res.send(results);
+        }
+    }catch(error){
+        res.status(500).send({message:`Error : ${error.message}`});
+    }
 })
 
 

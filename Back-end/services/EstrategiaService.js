@@ -43,6 +43,17 @@ class EstrategiaService{
         }
     }
 
+    async listEstEvt(estrategia_id){
+        if(!estrategia_id){
+            console.log(`Erro: Id da estratégia não fornecido!`);
+        }try{
+            const results = await this.EstrategiaRepository.listEstrategiesFromEvents(estrategia_id);
+            return results;
+        }catch(error){
+            console.log(`Erro : ${error.message}`);
+        }
+    }
+
 
     async readEstrategia(id_estrategia){
         if(!id_estrategia){

@@ -143,7 +143,7 @@ body,html{
 }
 
 #acoes_reciclagem h2{
-    font-size: 1.5rem;
+    font-size: 1.8rem;
 }
 
 #container_acoes_reciclagem{
@@ -158,6 +158,81 @@ body,html{
     border-radius: 7px;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
+
+
+/* Seção de eventos */
+#eventos{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#titulo_section_eventos{
+    text-align: center;
+    font-size: 1.8rem;
+    margin: 20px 0px;
+}
+
+#container_eventos{
+    border: 1px solid rgba(0, 0, 0, 0.405);
+    border-radius: 7px;
+    width: 95%;
+    height: 80vh;
+    margin: 20px 0px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    overflow-y: auto;
+}
+
+.box_eventos{
+    border: 1px solid black;
+    width: 25%;
+    height: fit-content;
+    align-items: center;
+    border-radius: 7px ;
+    margin: 10px 20px;
+}
+.box_eventos header h3{
+    text-align: center;
+    font-size: 1.3rem;
+    padding: 10px 0px;
+    color: white;
+}
+.box_eventos header{
+    background-color: rgb(9, 144, 72);
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+    width: 100%;
+}
+.descricao_evento{
+    height: 250px;
+    width: 100%;
+    padding: 5px 10px; 
+    line-height: 25px;
+    overflow: hidden;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+}
+
+.btn_detalhes_evento{
+    margin: 20px 0px;
+    padding: 10px;
+    background-color: rgb(9, 144, 72);
+    font-weight: bold;
+    color: white;
+    border: none;
+    border-radius: 7px;
+    font-size: 1.3rem;
+    cursor: pointer;
+    transition: 0.8s;
+    display: block;
+    margin: 30px auto;
+}
+
 
 /*Sobre*/
 

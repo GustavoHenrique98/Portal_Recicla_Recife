@@ -8,15 +8,15 @@ class EventoService{
     }
 
 
-    async createEvento(nome_evento, localizacao_evento, descricao_evento, data_inicio_evento, data_final_evento, organizacao_id,estrategia_id){
+    async createEvento(nome_evento, localizacao_evento, descricao_evento, data_inicio_evento, data_final_evento, organizacao_id, estrategia_id = null){
         if(!nome_evento || !localizacao_evento || !descricao_evento || !data_inicio_evento|| !data_final_evento  || !organizacao_id){
             console.log(`Erro , insira todos os argumentos da função!`);
         }else{
             try{
-                const novoEvento = new Eventos(nome_evento, localizacao_evento, descricao_evento, data_inicio_evento,data_final_evento,organizacao_id, estrategia_id);
+                const novoEvento = new Eventos(nome_evento, localizacao_evento, descricao_evento, data_inicio_evento,data_final_evento,organizacao_id, estrategia_id || null);
                 await this.EventoRepository.create(novoEvento);
             }catch(error){
-                console.log(`Erro : ${error.message}`);
+                console.log(`Error : ${error.message}`);
             }
         }
     }
@@ -42,6 +42,15 @@ class EventoService{
             }
         }
     }   
+
+    async listAllOrgEvts(){
+        try{
+            const results = this.EventoRepository.listAllOrgsEvents();
+            return results;
+        }catch(error){
+            console.log(`Erro: ${error.message}`);
+        }
+    }
 
     async readEvento(id_evento){
         if(!id_evento){

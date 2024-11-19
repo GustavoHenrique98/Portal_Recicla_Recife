@@ -13,6 +13,7 @@ window.addEventListener('load', async()=>{
 
     try{
         const responseAllEvOrgs  = await axios.get('/api/eventos/all-events-from-orgs');
+        
         console.log(responseAllEvOrgs)
        
         responseAllEvOrgs.data.forEach((dados,i) => {
@@ -20,46 +21,91 @@ window.addEventListener('load', async()=>{
             
             box_evento.classList.add('box_eventos');
             box_evento.innerHTML = `
-                 <header>
-                    <h3 class="titulo_eventos">${dados.nome_evento}</h3>
-                </header>
-    
-                <p class="descricao_evento">${dados.descricao_evento}</p>
                 
-                
-                <button class="btn_detalhes_evento">Saiba mais</button>        
+                            <header>
+                                <h2 id="titulo_evento" class="info_dados">${dados.nome_evento}</h2>
+                            </header>
+                            
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th id="header_tabela" colspan="2">
+                                            Publicado em :<span class="info_dados"> ${dados.data_criacao_evento}</span>
+                                         </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                    <tr>
+                                        <td>Data de inicio:<span class="info_dados"> ${dados.data_inicio_evento}</span> </td>
+                                        <td>Data de encerramento:<span class="info_dados"> ${dados.data_final_evento}</span> </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td colspan="2">Descrição: <span class="info_dados" id="descricao_evento_modal">${dados.descricao_evento}</span></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td  colspan="2">Localização do evento:<span class="info_dados"> ${dados.localizacao_evento}</span> </td>
+                                    </tr>
+                                   
+                                    
+                                    <tr>
+                                        <td>
+                                            Organização:<span class="info_dados"> ${dados.nome_fantasia}</span>
+                                        </td>
+                                        <td>
+                                            Cnpj:<span class="info_dados"> ${dados.cnpj}</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            E-mail:<span class="info_dados"> ${dados.email}</span>
+                                        </td>
+                                        <td>
+                                            Telefone:<span class="info_dados"> ${dados.telefone}</span>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        
+                                        <td>
+                                            Porte :<span class="info_dados"> ${dados.porte}</span>
+                                        </td>
+                                        <td>
+                                            Responsável :<span class="info_dados"> ${dados.responsavel_organizacao}</span>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                       
+                                        <td colspan="2">
+                                            Endereço :<span class="info_dados"> ${dados.localizacao_organizacao}</span>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            Estratégia :<span class="info_dados"> </span>
+                                        </td>
+                                        <td>
+                                            Tipo :<span class="info_dados"> </span>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        
+                                        <td colspan="2">
+                                            Descrição da estratégia :<span class="info_dados"></span>
+                                        </td>
+                                    </tr>
+
+
+                                </tbody>
+                            </table>      
             `;
             secaoEventos.container_eventos.appendChild(box_evento);   
-            const btn_detalhes_evento = getDomAll(".btn_detalhes_evento");
-            const modal = getDOM('#modal_eventos');
-            const btnFecharModal = getDOM('#btn_closeModalEvt');
-            const infoDados = getDomAll('.info_dados');
-            
-            btn_detalhes_evento[i].addEventListener('click', ()=>{
-                modal.style.display = "flex"
-                // secaoEventos.container_eventos.style.overflowY="hidden";
-                infoDados[0].textContent = dados.nome_evento;
-                infoDados[1].textContent = dados.data_criacao_evento;
-                infoDados[2].textContent = dados.data_inicio_evento;
-                infoDados[3].textContent = dados.data_final_evento;
-                infoDados[4].textContent = dados.descricao_evento;
-                infoDados[5].textContent = dados.localizacao_evento;
-                infoDados[6].textContent = dados.nome_fantasia;
-                infoDados[7].textContent = dados.cnpj;
-                infoDados[8].textContent = dados.email;
-                infoDados[9].textContent = dados.telefone;
-                infoDados[10].textContent = dados.porte;
-                infoDados[11].textContent = dados.responsavel_organizacao;
-                infoDados[12].textContent = dados.localizacao_organizacao;
-
-                
-            });
-
-            btnFecharModal.addEventListener('click',()=>{
-                modal.style.display ="none"
-                secaoEventos.container_eventos.style.overflowY="auto";
-            });
-
+           
         });
         
         

@@ -36,7 +36,7 @@ window.addEventListener('load', async()=>{
 //Todos os inputs da área de atualiação de cadastro.
 const inputs = getDomAll('input');
 
-//Botão que habilta os inputs
+//Botão que habilta os inputs.
 const btnEditar = getDOM('#btn_atualizarConta');
 //Botao que atualiza (para fazer aparecer).
 const btnATT = getDOM('#btnAtt');
@@ -51,7 +51,7 @@ btnEditar.addEventListener('click', ()=>{
 });
 
 
-//selecionando formulário para dar update
+//selecionando formulário para dar update.
 organizacao.form.addEventListener('submit' , async(e)=>{
     e.preventDefault();
     const cnpj = getDOM('#cnpj').value;

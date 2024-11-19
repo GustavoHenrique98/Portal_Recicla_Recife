@@ -192,35 +192,44 @@ body,html{
     position: relative;
 }
 
-/* Modal de eventos */
+/* Modal de eventos caixa de diálogo*/
 #modal_eventos{
     width: 100%;
     height: 150%;
-    background-color: rgba(234, 228, 228, 0.594);
+    background-color: rgba(234, 228, 228, 0.338);
     border: 1px solid rgba(0, 0, 0, 0.267);
     z-index: 1;
     display: flex;
     justify-content: center;
     align-items: center;
+    position: absolute;
+    display:none;
     backdrop-filter: blur(5px);
 }
 
 #container_infoModal{
-    width: 60%;
-    height: 60%;
+    width: 90%;
+    height: 80%;
+    overflow-y: auto;
     border: 1px solid rgba(18, 16, 16, 0.512);
     position: sticky;
-    top:2px;
-    bottom: 2px;
+    top:0;
+    bottom:0;
     background-color: white;
     border-radius: 7px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    /* display: none; */
 
 }
-
 #container_infoModal header{
     display:flex;
     justify-content: space-between;
     background-color: #0baa55;
+    width: 100%;
+    position: sticky;
+    top:0
 }
 
 #container_infoModal header #titulo_evento{
@@ -228,6 +237,31 @@ body,html{
     font-size: 1.8rem;
     padding: 10px;
 }
+/* MODAL DE EVENTOS */
+table{
+    width: 100%;
+    
+    border-collapse: collapse;
+}
+table th{
+    text-align: left;
+    padding: 10px 8px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border: 1px solid rgba(0, 0, 0, 0.367);
+
+}
+table td{
+    border: 1px solid rgba(34, 33, 33, 0.527);
+    font-size: 1.1rem;
+    padding: 10px 8px;
+    font-weight: bold;
+}
+.info_dados{
+    font-weight: normal;
+}
+
+
 
 #btn_closeModalEvt{
     padding: 10px;

@@ -55,10 +55,13 @@ class EventoRepository{
         try{
             const [results] = await conection.query(
                 `SELECT 
+                    organizacoes.cnpj,
                     organizacoes.nome_fantasia, 
                     organizacoes.telefone,
+                    organizacoes.porte,
                     organizacoes.email, 
                     organizacoes.responsavel_organizacao,
+                    organizacoes.localizacao_organizacao,
                     eventos.nome_evento,
                     eventos.descricao_evento,
                     eventos.localizacao_evento, 

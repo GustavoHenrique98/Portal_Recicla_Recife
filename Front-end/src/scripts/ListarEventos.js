@@ -200,7 +200,7 @@ function criarModal(evento,estrategia) {
             });
 
             alert(response.data.message);
-            // window.location.href="/painel";
+            window.location.href="/painel";
 
             }catch(error){
                 console.log(error.response.data.message);

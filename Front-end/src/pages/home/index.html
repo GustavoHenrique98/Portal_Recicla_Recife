@@ -25,7 +25,7 @@
                     <ul id="links_centro">
                         <li><a href="/">Home</a></li>
                         <li><a href="#secao_sobre">Sobre</a></li>
-                        <li><a href="#">Eventos</a></li>
+                        <li><a href="#eventos">Eventos</a></li>
                         <li><a href="/pages/cadastro/index.html">Cadastro</a></li>
                         <li><a href=/login>Login</a></li>
                     </ul>
@@ -75,14 +75,26 @@
                 <div id="container_eventos">
                     
                 <!-- Vai ser adicionado tudo dinamicamente -->
-                </div>                
+                    <dialog id="modal_eventos" open>
+                        <div id="container_infoModal">
+                            <header>
+                                <h2 id="titulo_evento">Nome do Evento</h2>
+                                <button id="btn_closeModalEvt">X</button>
+                            </header>
+                            
+                            <p>Data de publicação:<span class="inputs"></span></p>
+
+
+                        </div>
+                    </dialog>
+                </div>
 
             </section>
 
+           
             <section id="secao_sobre">
                 <article id="container_texto_sobre">
                     <h2>Sobre nós:</h2>
-
                     <p>
                         Recicla Recife é uma iniciativa dedicada à promoção da sustentabilidade urbana, atuando diretamente nas comunidades locais por meio de programas de reciclagem. Nosso trabalho é realizado em parceria com diversas organizações que compartilham da mesma missão, permitindo-nos gerenciar eventos educativos e implementar estratégias eficazes de gestão de resíduos.
                         Acreditamos que a conscientização e a educação são fundamentais para transformar hábitos e fomentar práticas ecológicas. Nosso objetivo é reduzir o desperdício e contribuir para um futuro mais sustentável em toda a cidade.
@@ -95,6 +107,7 @@
             </section>
         </main>
 
+       
 
         <footer id="rodape_home">
             <p> &copy;Recicla Recife </p>

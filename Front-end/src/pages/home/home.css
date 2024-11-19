@@ -167,35 +167,90 @@ body,html{
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
+   
 }
 
 #titulo_section_eventos{
     text-align: center;
-    font-size: 1.8rem;
+    font-size: 2.5rem;
     margin: 20px 0px;
 }
 
 #container_eventos{
-    border: 1px solid rgba(0, 0, 0, 0.405);
+    border: 1px solid rgba(0, 0, 0, 0.183);
     border-radius: 7px;
-    width: 95%;
+    width: 97%; 
     height: 80vh;
     margin: 20px 0px;
-    padding: 20px;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
+    padding: 20px 10px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); 
+    gap: 20px; 
     overflow-y: auto;
+    perspective: 800px;
+    background-color: rgba(248, 242, 242, 0.331);
+    position: relative;
 }
 
-.box_eventos{
-    border: 1px solid black;
-    width: 25%;
-    height: fit-content;
+/* Modal de eventos */
+#modal_eventos{
+    width: 100%;
+    height: 150%;
+    background-color: rgba(234, 228, 228, 0.594);
+    border: 1px solid rgba(0, 0, 0, 0.267);
+    z-index: 1;
+    display: flex;
+    justify-content: center;
     align-items: center;
-    border-radius: 7px ;
-    margin: 10px 20px;
+    backdrop-filter: blur(5px);
 }
+
+#container_infoModal{
+    width: 60%;
+    height: 60%;
+    border: 1px solid rgba(18, 16, 16, 0.512);
+    position: sticky;
+    top:2px;
+    bottom: 2px;
+    background-color: white;
+    border-radius: 7px;
+
+}
+
+#container_infoModal header{
+    display:flex;
+    justify-content: space-between;
+    background-color: #0baa55;
+}
+
+#container_infoModal header #titulo_evento{
+    color: white;
+    font-size: 1.8rem;
+    padding: 10px;
+}
+
+#btn_closeModalEvt{
+    padding: 10px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    background: none;
+    border: none;
+    color: white;
+}
+
+.box_eventos {
+    border: 1px solid rgba(0, 0, 0, 0.518);
+    border-radius: 7px;
+    width: 100%; /* O item se ajusta à largura da coluna */
+    height: fit-content;
+    transition: 0.8s;
+    cursor: pointer;
+}
+.box_eventos:hover{
+    transform: translateZ(5px);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3);
+}
+
 .box_eventos header h3{
     text-align: center;
     font-size: 1.3rem;
@@ -209,18 +264,20 @@ body,html{
     width: 100%;
 }
 .descricao_evento{
-    height: 250px;
+    height: 150px;
     width: 100%;
-    padding: 5px 10px; 
+    padding: 5px;
     line-height: 25px;
     overflow: hidden;
     font-size: 1.1rem;
     letter-spacing: 1px;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.231);
 }
 
 .btn_detalhes_evento{
-    margin: 20px 0px;
-    padding: 10px;
+    width: 60%;
+    margin: 10px 0px;
+    padding: 10px 30px;
     background-color: rgb(9, 144, 72);
     font-weight: bold;
     color: white;
@@ -232,6 +289,11 @@ body,html{
     display: block;
     margin: 30px auto;
 }
+.btn_detalhes_evento:hover{
+    color: black;
+    background-color: rgb(7, 111, 55);
+}
+
 
 
 /*Sobre*/
@@ -256,6 +318,7 @@ body,html{
     border-radius: 7px;
     box-shadow: 2px 2px 2px rgba(0,0,0,0.5);
 }
+
 #container_texto_sobre h2{
     font-size: 1.7rem;
 }

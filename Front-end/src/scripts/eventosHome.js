@@ -1,15 +1,16 @@
 import { getDOM, getDomAll } from "./getDOM.js";
 
-const secaoEventos = {
-    container_eventos :getDOM("#container_eventos"),
-    titulo_eventos:getDomAll(".titulo_eventos"),
-    descricao_evento:getDomAll('.descricao_evento'),
-    btn_detalhese_evento:getDomAll('.btn_detalhes_evento')
-}
+
 
 
 window.addEventListener('load', async()=>{
-    
+    const secaoEventos = {
+        container_eventos :getDOM("#container_eventos"),
+        titulo_eventos:getDomAll(".titulo_eventos"),
+        descricao_evento:getDomAll('.descricao_evento'),
+        btn_detalhese_evento:getDomAll('.btn_detalhes_evento')
+    }
+
     try{
         const responseAllEvOrgs  = await axios.get('/api/eventos/all-events-from-orgs');
        
@@ -25,14 +26,19 @@ window.addEventListener('load', async()=>{
                 <p class="descricao_evento">${dados.descricao_evento}</p>
                 
                 
-                <button class="btn_detalhes_evento">Ver Mais</button>        
+                <button class="btn_detalhes_evento">Saiba mais</button>        
             `;
             secaoEventos.container_eventos.appendChild(box_evento);   
         });
         
         const btnteste = getDomAll(".btn_detalhes_evento");
-        btnteste[0].addEventListener('click', ()=>{
-            alert('olá marilene');
+        const modal = document.createElement('dialog');
+        modal.id = "modal_eventos"
+        modal.style.cssText={}
+        btnteste.forEach((btns,i)=>{
+            btns.addEventListener('click', ()=>{
+                
+            })
         })
         
         

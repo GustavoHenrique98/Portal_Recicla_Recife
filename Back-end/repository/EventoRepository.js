@@ -64,7 +64,8 @@ class EventoRepository{
                     organizacoes.localizacao_organizacao,
                     eventos.nome_evento,
                     eventos.descricao_evento,
-                    eventos.localizacao_evento, 
+                    eventos.localizacao_evento,
+                    eventos.estrategia_id,
                     DATE_FORMAT(eventos.data_criacao_evento, '%d/%m/%Y') AS data_criacao_evento,
                     DATE_FORMAT(eventos.data_inicio_evento, '%d/%m/%Y')AS data_inicio_evento,
                     DATE_FORMAT(eventos.data_final_evento, '%d/%m/%Y') AS data_final_evento 

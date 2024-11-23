@@ -34,9 +34,6 @@ body,html{
     display: none;
 }
 #btn_fecharNav{
-    position: absolute;
-    top: 0;
-    right: 0;
     border: none;
     background: none;
     font-size: 1.3rem;
@@ -156,7 +153,7 @@ body,html{
 #container_acoes_reciclagem img{
     width: 25%;
     border-radius: 7px;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 }
 
 
@@ -177,7 +174,7 @@ body,html{
 #container_eventos{
     border: 1px solid rgba(0, 0, 0, 0.183);
     border-radius: 7px;
-    width: 90%;
+    width: 93%;
     height: 100%; 
     margin: 10px 0px;
     padding: 20px 10px;

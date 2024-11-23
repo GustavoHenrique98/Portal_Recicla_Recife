@@ -13,9 +13,7 @@ window.addEventListener('load', async()=>{
 
     try{
         const responseAllEvOrgs  = await axios.get('/api/eventos/all-events-from-orgs');
-        
-        console.log(responseAllEvOrgs)
-       
+
         responseAllEvOrgs.data.forEach( async (dados,i) => {
             const box_evento = document.createElement('article');
             
@@ -206,7 +204,21 @@ window.addEventListener('load', async()=>{
         
         
     }catch(error){
-        console.log(error);
+       if(error.response.data.length ===0){
+         const text = document.createElement('h3');
+         text.textContent = "Nenhum evento cadastrado ainda!";
+         text.id = "letreiro_eventos";
+         text.style.cssText =`
+            font-size:2rem;
+            position:absolute;
+            top:50%;
+            left:50%;
+            transform:translate(-50%,-50%);
+         
+         `
+         secaoEventos.container_eventos.style.position="relative";
+         secaoEventos.container_eventos.appendChild(text);
+       }
     }
 
 });

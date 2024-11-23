@@ -97,11 +97,17 @@
     #container_acoes_reciclagem img{
         width: 80%;
     }
-
+    #container_texto_sobre{
+        width: 95%;
+    }
+    
 
     #container_texto_sobre p{
         font-size: 1rem;
     }
 
+    #secao_sobre img{
+        width: 95%;
+    }
    
 }

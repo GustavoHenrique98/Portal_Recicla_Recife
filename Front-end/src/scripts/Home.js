@@ -17,9 +17,8 @@ window.addEventListener('load', () => {
                         <li><a href="#secao_sobre">Sobre</a></li>
                         <li><a href="#">Eventos</a></li>
                         <li><a href="/painel">Painel</a></li>
-                        
+                        <li><a href="#" id="btn_fecharNav">X</a></li>
                     </ul>
-                    <button id="btn_fecharNav">X</button>
                 </nav>
 
                 <button id="btn_nav"><i class="fa-solid fa-bars"></i></button>
